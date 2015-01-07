@@ -1,3 +1,119 @@
-body {
-  
+@portrait-pulse-border: 6px;
+@header-font-color: white;
+
+header {
+  z-index: 0;
+  width: 100%;
+  background-image: url("/img/mountains.jpg");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: 40% 40%;
+  transition: background-position 0.5s;
+
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 90px;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
+
+  nav {
+    &.affix-top {
+
+      position: absolute;
+      top: 0;
+      width: 100%;
+      ul {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        list-style: none;
+        li {
+          border: 1px solid red;
+          display: inline;
+          text-decoration: none;
+          padding: 10px;
+          a {
+            font-size: 1.2em;
+            color: @header-font-color;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: color 0.3s, text-shadow 0.3s;
+            text-decoration: underline;
+            &:hover {
+              color: @header-font-color;
+              text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  h1 {
+
+    color: @header-font-color;
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0 0 50px;
+
+    @media(max-width: 570px) {
+      font-size: 3em;
+
+    }
+    span {
+      background: rgba(255,255,255, .2);
+      padding: 5px;
+      border: 10px solid rgba(255,255,255, .7);
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85);
+    }
+
+  }
+  p {
+    @media(max-width: 570px) {
+      font-size: 1em;
+
+    }
+    color: @header-font-color;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85);
+  }
+  div.portrait {
+    position: absolute;
+
+    left: 50%;
+    margin-left: -80px;
+    @media(max-width: 570px) {
+      top: 200px;
+
+    }
+    img {
+      position: absolute;
+      z-index: 51;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.55);
+      border-radius: 100%;
+
+      &:hover + div {
+        opacity: 0;
+        transform: scale(1.5);
+        filter: blur(5px);
+      }
+
+    }
+    div {
+      position: absolute;
+      z-index: 50;
+      width: 160px;
+      height: 160px;
+      border-radius: 100%;
+      border: @portrait-pulse-border solid rgba(0, 0, 0, 0.40);
+      transform: scale(1);
+      opacity: 1;
+      filter: blur(1px);
+      transition: opacity 0.2s, transform 0.2s, filter 0.2s;
+    }
+  }
 }
