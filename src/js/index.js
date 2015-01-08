@@ -8,6 +8,7 @@
 
     $(".nav-toggle").click(this.toggleNav.bind(this));
     $(document).click(this.hiddeNav.bind(this));
+    //$(window).resize(this.resizeText.bind(this));
   }
 
 
@@ -36,6 +37,17 @@
       button.removeClass("dropped");
     }
   };
+  // EventHandler.prototype.resizeText = function() {
+  //   if ($("header").hasClass("affix")) {
+  //     var width = window.innerWidth;
+  //     if (width < 430) {
+  //       var height = (width - 65) / 11
+  //       $("header .content h1").css("font-size", height + "px")
+  //     } else {
+  //       $("header .content h1").css("font-size", "")
+  //     }
+  //   }
+  // };
 
 
 

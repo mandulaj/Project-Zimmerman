@@ -132,6 +132,8 @@ header {
         padding: 5px;
         text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85);
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85);
+
+        border: 10px solid rgba(255,255,255, .7);
       }
 
     }
@@ -221,11 +223,6 @@ header {
       h1 {
         font-size: 4em;
         padding-top: 60px;
-
-        span {
-          border: 10px solid rgba(255,255,255, .7);
-
-        }
         @media(max-width: 570px) {
           font-size: 3em;
           margin-bottom: 40px;
@@ -312,7 +309,10 @@ header {
       height: 78px;
       div {
         // Makes ghost effect
-        filter: blur(3px);
+        //filter: blur(3px);
+        @media(max-width: 427px) {
+          background-size: auto 110%;
+        }
       }
 
     }
@@ -342,10 +342,26 @@ header {
 
         margin-left: 15px;
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 0;
         font-size: 2.5em;
         span {
-          border: 5px solid rgba(255,255,255, .7);
+          border-width: 5px;
+        }
+        @media(max-width: 427px) {
+          font-size: 2em;
+        }
+        @media(max-width: 355px) {
+          font-size: 1.5em;
+          span {
+            line-height: 40px;
+          }
+
+        }
+        @media(max-width: 290px) {
+          font-size: 1em;
+          span {
+            border-width: 2px;
+          }
         }
 
       }
