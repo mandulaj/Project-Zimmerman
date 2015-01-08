@@ -12,7 +12,7 @@
         var wP = 40 * (e.clientX / w * 0.15 + 0.75);
         var hP = 40 * (e.clientY / h * 0.15 + 0.75);
         last = e.timeStamp;
-        $(".background").css("background-position", wP + "% " + hP + "%");
+        //$(".background").css("background-position", wP + "% " + hP + "%");
       }
     });
   });
