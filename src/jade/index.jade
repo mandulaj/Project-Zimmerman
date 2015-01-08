@@ -1,109 +1,100 @@
-html
-  head
-    meta(charset="UTF-8")
-    
-    title Kateřina Mandulová
-    link(type="text/css" rel="stylesheet" href='/modules/normalize.css/normalize.css')
-    link(type="text/css" rel="stylesheet" href='/css/index.css')
-    link(type="text/css" rel="stylesheet" href='/modules/bootstrap/dist/css/bootstrap.min.css')
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    
-    // TODO: add description and keywords
-    meta(name="keywords" content="")
-    meta(name="author" content="Kateřina Mandulová")
-    meta(name="description" content="")
-  body
-    
-    header(data-spy="affix"  data-offset-top="40" class="affix-top")
-      .background
+extends ./layout.jade
+
+
+
+block header
+  header(data-spy="affix"  data-offset-top="40" class="affix-top")
+    .background
+      div
+    .content
+      nav
+        ul
+          li 
+            a O mě
+          li 
+            a Já
+          li
+            a Other
+      button.nav-toggle
+        span.glyphicon.glyphicon-align-justify
+      
+      h1 
+        span Kateřina Mandulová
+      p
+        | Potrefená holka, Náruživá cestovatelka a Fotografka
+      .portrait
+        img(src='/img/portrait.jpg')
         div
-      .content
-        nav
-          ul
-            li 
-              a O mě
-            li 
-              a Já
-            li
-              a Other
-        button.nav-toggle
-          span.glyphicon.glyphicon-align-justify
-        
-        h1 
-          span Kateřina Mandulová
-        p
-          | Potrefená holka, Náruživá cestovatelka a Fotografka
-        
-        .portrait
-          
-          img(src='/img/portrait.jpg')
-          div
-    .headspacer
-    .container
-      h2 1Ahoj
-      p Hello
-      h2 2Ahoj
-      p Hello
-      h2 3Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
-      h2 Ahoj
-      p Hello
+  .headspacer
+
+
+block content
+  h2 1Ahoj
+  p Hello
+  h2 2Ahoj
+  p Hello
+  h2 3Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
+  h2 Ahoj
+  p Hello
     
-    script(type="text/javascript" src="/modules/jquery/dist/jquery.min.js")
-    script(type="text/javascript" src="/modules/FitText.js/jquery.fittext.js")
-    script(type="text/javascript" src="/modules/bootstrap/dist/js/bootstrap.min.js")
-    script(type="text/javascript" src="/js/index.js")
+    
+block scripts
+  script(type="text/javascript" src="/modules/jquery/dist/jquery.min.js")
+  script(type="text/javascript" src="/modules/FitText.js/jquery.fittext.js")
+  script(type="text/javascript" src="/modules/bootstrap/dist/js/bootstrap.min.js")
+  script(type="text/javascript" src="/js/index.js")
