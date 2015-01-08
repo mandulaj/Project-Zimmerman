@@ -2,6 +2,36 @@
 @header-font-color: white;
 @affix-transition: 0.3s;
 
+.dropDownMenu() {
+  position: absolute;
+  z-index: 50;
+  top: 58px;
+  right: 0;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.1s;
+  ul {
+    background: rgba(0,0,0,0.9);
+    float: right;
+    width: 100%;
+    max-width: 100%;
+    li {
+      display: block;
+      &:hover {
+        background: rgba(255, 255, 255, 0.37);
+      }
+      &:active {
+        background: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+  }
+  &.showNav {
+    opacity: 1;
+  }
+
+}
 header {
   position: absolute;
   top: 0;
@@ -9,14 +39,15 @@ header {
   width: 100%;
   .background {
     position: absolute;
+    overflow: hidden;
     z-index: 20;
     top: 0;
     width: 100%;
-    // Must stay 300px all time to assure correct bg position FIXME: creates ghost image when scrolling
     height: 300px;
     div {
       width: 100%;
-      height: 100%;
+      // Must stay 300px all time to assure correct bg position FIXME: creates ghost image when scrolling
+      height: 300px;
       background-image: url("/img/mountains.jpg");
       background-repeat: no-repeat;
       background-size: 110%;
@@ -31,13 +62,7 @@ header {
     position: relative;
     transition: padding @affix-transition;
     z-index: 21;
-    @media(max-width: 768px) {
-      nav {
-        visibility: hidden;
-      }
-
-    }
-    nav.wideNav {
+    nav {
       ul {
         margin: 0;
         padding: 0;
@@ -63,15 +88,17 @@ header {
             }
           }
         }
-      }
 
-    }
-    nav.phoneNav {
-      
+      }
+      // For phone devices use the drop down version
+      @media(max-width: 768px) {
+        .dropDownMenu();
+      }
 
     }
     button.nav-toggle {
       position: absolute;
+      z-index: 60;
       top: 5px;
       right: 5px;
       padding: 10px;
@@ -81,11 +108,13 @@ header {
       transition: background 0.1s, padding @affix-transition, top @affix-transition;
       color: @header-font-color;
       display: none;
+
       @media(max-width: 768px) {
         display: block;
       }
       &:hover {
         background: rgba(0, 0, 0, 0.7);
+
       }
       &:active {
         background: rgba(0, 0, 0, 0.85);
@@ -172,10 +201,22 @@ header {
     .content {
       text-align: center;
 
-      nav.wideNav {
+      nav {
         position: absolute;
         top: 0;
         width: 100%;
+
+      }
+      button.nav-toggle {
+        // Button is over the dropdown
+        &.dropped {
+          background: rgba(255,255,255,.2);
+
+        }
+        &.dropped:hover {
+          background: rgba(255,255,255,.7);
+        }
+
       }
       h1 {
         font-size: 4em;
@@ -262,21 +303,33 @@ header {
   }
   &.affix {
     text-align: left;
-    overflow: hidden;
     background-image: url("/img/mountains.jpg");
     background-repeat: no-repeat;
     background-size: 110%;
     background-position: 40% 33%;
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
     .background {
+      height: 78px;
       div {
+        // Makes ghost effect
         filter: blur(3px);
       }
 
     }
     .content {
       nav {
-        display: none;
+        @media(min-width: 768px) {
+          // FIXME: On large screens in scroll mode we have to say bye to the transition :( Else ghost!
+          display: none;
+          &.showNav {
+            display: block;
+            .dropDownMenu();
+          }
+
+        }
+        @media(max-width: 768px) {
+          display: block;
+        }
 
       }
       button.nav-toggle {
@@ -303,8 +356,9 @@ header {
         position: inline-box;
         img,
         div {
-          width: 100px;
-          height: 100px;
+          display: none;
+          width: 0;
+          height: 0;
         }
       }
     }
