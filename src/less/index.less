@@ -7,23 +7,27 @@ header {
   top: 0;
   transition: height @affix-transition;
   width: 100%;
-
   .background {
     position: absolute;
     z-index: 20;
     top: 0;
     width: 100%;
+    // Must stay 300px all time to assure correct bg position FIXME: creates ghost image when scrolling
     height: 300px;
-    background-image: url("/img/mountains.jpg");
-    background-repeat: no-repeat;
-    background-size: 110%;
-    background-position: 40% 40%;
-    transition: filter @affix-transition, height @affix-transition;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
-    filter: blur(0);
+    div {
+      width: 100%;
+      height: 100%;
+      background-image: url("/img/mountains.jpg");
+      background-repeat: no-repeat;
+      background-size: 110%;
+      background-position: 40% 40%;
+      transition: filter @affix-transition, height @affix-transition;
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
+      filter: blur(0);
+    }
+
   }
   .content {
-    //height: 100%;
     position: relative;
     transition: padding @affix-transition;
     z-index: 21;
@@ -34,7 +38,6 @@ header {
 
     }
     nav.wideNav {
-
       ul {
         margin: 0;
         padding: 0;
@@ -159,8 +162,10 @@ header {
 
     }
     .background {
-      @media(max-width: 480px) {
-        background-size: auto 110%;
+      div {
+        @media(max-width: 480px) {
+          background-size: auto 110%;
+        }
       }
 
     }
@@ -264,7 +269,10 @@ header {
     background-position: 40% 33%;
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
     .background {
-      filter: blur(3px);
+      div {
+        filter: blur(3px);
+      }
+
     }
     .content {
       nav {
