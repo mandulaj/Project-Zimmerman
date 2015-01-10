@@ -1,7 +1,8 @@
 @portrait-pulse-border: 6px;
 @header-font-color: white;
 @affix-transition: 0.3s;
-@background-image-src: url("/img/mountains.jpg");
+@background-image-src: url("/img/panorama.jpg");
+@background-image-src-blur: url("/img/panorama_blur.jpg");
 
 .dropDownMenu() {
   position: absolute;
@@ -33,6 +34,17 @@
   }
 
 }
+
+@keyframes panorama_pan {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 100%;
+  }
+}
+
+
 header {
   position: absolute;
   top: 0;
@@ -53,10 +65,14 @@ header {
       height: 300px;
       background-image: @background-image-src;
       background-repeat: no-repeat;
-      background-size: 110%;
-      background-position: 40% 40%;
+      background-size: auto 110%;
       transition: filter @affix-transition, height @affix-transition;
       filter: blur(0);
+
+      animation: panorama_pan 30s linear 1s 4 alternate;
+      @media(max-width: 500px) {
+        animation: panorama_pan 50s linear 1s 4 alternate;
+      }
     }
 
   }
@@ -302,14 +318,11 @@ header {
   }
   &.affix {
     text-align: left;
-    background-image: @background-image-src;
-    background-repeat: no-repeat;
-    background-size: 110%;
-    background-position: 40% 33%;
     height: 78px;
     .background {
       height: 78px;
       div {
+        background-image: @background-image-src-blur;
         // Makes ghost effect
         //filter: blur(3px);
         @media(max-width: 427px) {
@@ -401,6 +414,7 @@ header {
 }
 footer {
   background: #007e91;
+  background-image: @background-image-src-blur;
   background-repeat: no-repeat;
   background-origin: content-box;
   width: 100%;
