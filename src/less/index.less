@@ -1,6 +1,7 @@
 @portrait-pulse-border: 6px;
 @header-font-color: white;
 @affix-transition: 0.3s;
+@link-transition: 0.2s;
 @background-image-src: url("/img/panorama.jpg");
 @background-image-src-blur: url("/img/panorama_blur.jpg");
 
@@ -92,28 +93,61 @@ header {
     transition: padding @affix-transition;
     z-index: 21;
     nav {
+      height: 40px;
       ul {
         margin: 0;
         padding: 0;
         text-align: center;
         list-style: none;
         li {
-          display: inline;
+          cursor: pointer;
+          display: inline-block;
+          overflow: hidden;
           text-decoration: none;
-          padding: 10px;
+          vertical-align: top;
+          perspective: 1000px;
+          perspective-origin: 50% 50%;
+          padding: 0 10px;
           a {
             font-size: 1.2em;
             color: @header-font-color;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
+            //text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.55);
             font-weight: bold;
             display: inline-block;
             padding: 5px 20px;
-            transition: color 0.3s, text-shadow 0.3s;
-            text-decoration: underline;
+            transition: all @link-transition ease;
+            text-decoration: none;
+            border-top: 4px solid rgba(255,255,255,0);
+            border-bottom: 4px solid rgba(255,255,255,0);
             &:hover {
-              color: @header-font-color;
-              text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
-              text-decoration: underline;
+              border-top: 4px solid rgba(255,255,255,1);
+              border-bottom: 4px solid rgba(255,255,255,1);
+              span {
+                //background: rgba(0,0,0,0.5);
+                transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
+              }
+
+            }
+            span {
+              display: block;
+              position: relative;
+              padding: 0 2px;
+              pointer-events: none;
+              transition: all @link-transition ease;
+              transform-origin: 50% 0;
+              transform-style: preserve-3d;
+              &::after {
+                content: attr(data-title);
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 0 2px;
+                color: #fff;
+                //background: hsl(185, 60%, 35%);
+                transform-origin: 50% 0;
+                transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+              }
             }
           }
         }
@@ -237,6 +271,13 @@ header {
         position: absolute;
         top: 0;
         width: 100%;
+        li a {
+          background: rgba(0,0,0,0);
+          transition: background @link-transition;
+          &:hover {
+            background: rgba(0,0,0,0.3);
+          }
+        }
 
       }
       button.nav-toggle {
@@ -252,7 +293,7 @@ header {
       }
       h1 {
         font-size: 4em;
-        padding-top: 60px;
+        padding-top: 65px;
         @media(max-width: 570px) {
           font-size: 3em;
           margin-bottom: 40px;
