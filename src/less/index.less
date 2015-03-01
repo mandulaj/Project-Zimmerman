@@ -4,7 +4,6 @@
 @link-transition: 0.2s;
 @background-image-src: url("/img/panorama.jpg");
 @background-image-src-blur: url("/img/panorama_blur.jpg");
-
 .dropDownMenu() {
   position: absolute;
   z-index: 60;
@@ -15,7 +14,7 @@
   opacity: 0;
   transition: opacity 0.1s;
   ul {
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 79, 141, 0.9);
     float: right;
     width: 100%;
     max-width: 100%;
@@ -28,12 +27,10 @@
         background: rgba(255, 255, 255, 0.6);
       }
     }
-
   }
   &.showNav {
     opacity: 1;
   }
-
 }
 @keyframes panorama_pan {
   from {
@@ -42,7 +39,6 @@
   to {
     background-position-x: 100%;
   }
-
 }
 header {
   position: absolute;
@@ -66,18 +62,15 @@ header {
       background-repeat: no-repeat;
       background-size: auto 110%;
       transition: filter @affix-transition, height @affix-transition;
-      filter: blur(0);
-
+      filter:blur(0);
       animation: panorama_pan 30s cubic-bezier(.1,0,.9,1) 1s 4 alternate;
       @media(max-width: 500px) {
         animation: panorama_pan 50s cubic-bezier(.1,0,.9,1) 1s 4 alternate;
-
       }
       @media(min-width: 2140px) {
         background-size: 100% auto;
       }
     }
-
   }
   @media(min-width: 1500px) {
     &,
@@ -86,7 +79,6 @@ header {
       height: 400px !important;
       // Important to override some header sizes
     }
-
   }
   .content {
     position: relative;
@@ -126,7 +118,6 @@ header {
                 //background: rgba(0,0,0,0.5);
                 transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
               }
-
             }
             span {
               display: block;
@@ -151,13 +142,11 @@ header {
             }
           }
         }
-
       }
       // For phone devices use the drop down version
       @media(max-width: 768px) {
         .dropDownMenu();
       }
-
     }
     button.nav-toggle {
       position: absolute;
@@ -171,39 +160,32 @@ header {
       transition: background 0.1s, padding @affix-transition, top @affix-transition;
       color: @header-font-color;
       display: none;
-
       @media(max-width: 768px) {
         display: block;
       }
       &:hover {
         background: rgba(0, 0, 0, 0.7);
-
       }
       &:active {
         background: rgba(0, 0, 0, 0.85);
       }
-
     }
     h1 {
       transition: margin @affix-transition;
       color: @header-font-color;
       font-weight: bold;
       margin: 0 0 50px;
-
       span {
         background: rgba(255,255,255, .2);
         padding: 5px;
         text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85);
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.85), inset 5px 5px 10px rgba(0, 0, 0, 0.45);
-
         border: 10px solid rgba(255,255,255, .7);
       }
-
     }
     p {
       @media(max-width: 570px) {
         font-size: 1em;
-
       }
       color: @header-font-color;
       font-weight: bold;
@@ -221,7 +203,6 @@ header {
         transition: width @affix-transition, height @affix-transition;
       }
     }
-
   }
   &.affix-top {
     height: 300px;
@@ -230,14 +211,12 @@ header {
       .background {
         height: 250px;
       }
-
     }
     @media(max-width: 440px) {
       &,
       .background {
         height: 250px;
       }
-
     }
     .background {
       div {
@@ -245,11 +224,9 @@ header {
           background-size: auto 110%;
         }
       }
-
     }
     .content {
       text-align: center;
-
       nav {
         background: rgba(0,0,0,0);
         transition: background @link-transition*2;
@@ -262,23 +239,19 @@ header {
           &:hover {
             background: rgba(0,0,0,0.3);
           }
-
         }
         &:hover {
           background: rgba(0,0,0,0.40);
         }
-
       }
       button.nav-toggle {
         // Button is over the dropdown
         &.dropped {
           background: rgba(255,255,255,.2);
-
         }
         &.dropped:hover {
           background: rgba(255,255,255,.7);
         }
-
       }
       h1 {
         font-size: 4em;
@@ -289,15 +262,12 @@ header {
           span {
             border: 7.5px solid rgba(255,255,255, .7);
           }
-
         }
         @media(max-width: 440px) {
           font-size: 2em;
-
           span {
             border: 5px solid rgba(255,255,255, .7);
           }
-
         }
         @media(max-width: 300px) {
           margin-bottom: 20px;
@@ -307,17 +277,14 @@ header {
             background: none;
           }
         }
-
       }
       div.portrait {
-
         left: 50%;
         margin-left: -80px;
         img,
         div {
           width: 180px;
           height: 180px;
-
         }
         @media(max-width: 769px) {
           margin-left: -75px;
@@ -326,7 +293,6 @@ header {
             width: 150px;
             height: 150px;
           }
-
         }
         @media(max-width: 570px) {
           margin-left: -70px;
@@ -335,7 +301,6 @@ header {
             width: 140px;
             height: 140px;
           }
-
         }
         @media(max-width: 440px) {
           margin-left: -60px;
@@ -344,7 +309,6 @@ header {
             width: 120px;
             height: 120px;
           }
-
         }
         @media(max-width: 300px) {
           margin-left: -50px;
@@ -356,7 +320,6 @@ header {
         }
       }
     }
-
   }
   &.affix {
     text-align: left;
@@ -372,7 +335,6 @@ header {
           background-size: auto 110%;
         }
       }
-
     }
     .content {
       nav {
@@ -383,22 +345,18 @@ header {
             display: block;
             .dropDownMenu();
           }
-
         }
         @media(max-width: 768px) {
           display: block;
         }
-
       }
       button.nav-toggle {
         display: block;
         top: -10px;
         right: 8px;
         padding: 20px;
-
       }
       h1 {
-
         margin-left: 15px;
         margin-top: 20px;
         margin-bottom: 0;
@@ -414,7 +372,6 @@ header {
           span {
             line-height: 40px;
           }
-
         }
         @media(max-width: 290px) {
           font-size: 1em;
@@ -422,7 +379,6 @@ header {
             border-width: 2px;
           }
         }
-
       }
       p {
         display: none;
@@ -437,19 +393,16 @@ header {
         }
       }
     }
-
   }
   &.affix + .headspacer {
     margin-bottom: 220px;
   }
-
 }
 .headspacer {
   transition: margin @affix-transition;
   margin-bottom: 350px;
   @media(max-width: 570px) {
     margin-bottom: 320px;
-
   }
   @media(max-width: 440px) {
     margin-bottom: 280px;
@@ -457,7 +410,11 @@ header {
   @media(min-width:1500px) {
     margin-bottom: 430px;
   }
-
+}
+.container {
+  @media(max-width: 775px) {
+    margin: 5px;
+  }
 }
 footer {
   background: #007e91;
