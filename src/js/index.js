@@ -9,7 +9,7 @@
       var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;
       $(id)[0].scrollIntoView();
       scrollBy(0, -offset);
-      console.log(id, offset)
+      console.log(id, offset);
     }
     scrollToElement(window.location.hash); // Scroll to element on load
     $(".nav-toggle").click(this.toggleNav.bind(this));
@@ -18,7 +18,7 @@
 
     $('nav ul li a').click(function(event) {
       event.preventDefault();
-      window.location.hash = $(this).attr('href')
+      window.location.hash = $(this).attr('href');
       scrollToElement(window.location.hash);
     });
   }
@@ -42,7 +42,7 @@
     var menu = $("nav");
     var target = $(e.target);
     if (e.target == button.get(0) || button.find(target).length !== 0) {
-      return
+      return;
     }
     this.navbarOpen = false;
     menu.removeClass("showNav");
