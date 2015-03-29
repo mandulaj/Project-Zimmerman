@@ -8,7 +8,8 @@ var gulp = require('gulp'),
   connect = require('gulp-connect'),
   rename = require('gulp-rename'),
   jade = require('gulp-jade'),
-  imageop = require('gulp-image-optimization');
+  imageop = require('gulp-image-optimization'),
+  exec = require('child_process').exec;
 
 
 var paths = {
@@ -17,6 +18,15 @@ var paths = {
   jade: "src/jade/**/*.jade",
   img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg']
 };
+
+gulp.task('deploy', function(cb){
+  exec('git push origin `git subtree split --prefix build master`:gh-pages --force', function(err,stdout,stderr){
+    if (err) return cb(err); // return error
+    console.log(stdout);
+    console.log(stderr);
+    cb(); // finished task
+  });
+});
 
 gulp.task('connect', function() {
   connect.server({
