@@ -41,6 +41,7 @@ gulp.task("less", function() {
 });
 
 gulp.task("jade", function() {
+  gulp.src("CNAME").pipe(gulp.dest("build"));
   return gulp.src(paths.jade)
     .pipe(plumber())
     .pipe(jade())
