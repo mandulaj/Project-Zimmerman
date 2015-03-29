@@ -13,14 +13,22 @@ var gulp = require('gulp'),
 
 
 var paths = {
-  js: "src/js/**/*js",
-  less: "src/less/**/*.less",
-  jade: "src/jade/**/*.jade",
-  img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg']
+  input: {
+    js: "src/js/**/*js",
+    less: "src/less/**/*.less",
+    jade: "src/jade/**/*.jade",
+    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg']
+  },
+  output: {
+    js: "build/js",
+    css: "build/css",
+    img: "build/img",
+    root: "build"
+  }
 };
 
-gulp.task('deploy', function(cb){
-  exec('git push origin `git subtree split --prefix build master`:gh-pages --force', function(err,stdout,stderr){
+gulp.task('deploy', ['jade', 'less', 'js', 'image'], function(cb) {
+  exec('git push origin `git subtree split --prefix build master`:gh-pages --force', function(err, stdout, stderr) {
     if (err) return cb(err); // return error
     console.log(stdout);
     console.log(stderr);
@@ -30,60 +38,60 @@ gulp.task('deploy', function(cb){
 
 gulp.task('connect', function() {
   connect.server({
-    root: 'build',
+    root: paths.output.root,
     livereload: true
   });
 });
 
 
 gulp.task("less", function() {
-  return gulp.src(paths.less)
+  return gulp.src(paths.input.less)
     .pipe(plumber())
     .pipe(less())
     .pipe(autoprfixer())
-    .pipe(gulp.dest("build/css"))
+    .pipe(gulp.dest(paths.output.css))
     .pipe(minify({
       ext: '.min.css'
     }))
-    .pipe(gulp.dest("build/css"))
+    .pipe(gulp.dest(paths.output.css))
     .pipe(connect.reload());
 
 });
 
 gulp.task("jade", function() {
-  gulp.src("CNAME").pipe(gulp.dest("build"));
-  return gulp.src(paths.jade)
+  gulp.src("CNAME").pipe(gulp.dest(paths.output.root));
+  return gulp.src(paths.input.jade)
     .pipe(plumber())
     .pipe(jade())
-    .pipe(gulp.dest("build"))
+    .pipe(gulp.dest(paths.output.root))
     .pipe(connect.reload());
 });
 
 gulp.task("js", function() {
-  return gulp.src(paths.js)
+  return gulp.src(paths.input.js)
     .pipe(plumber())
     .pipe(jshint())
     .pipe(rename({
       extname: ".js"
     }))
-    .pipe(gulp.dest("build/js"))
+    .pipe(gulp.dest(paths.output.js))
     .pipe(jsuglify())
     .pipe(rename({
       extname: ".min.js"
     }))
-    .pipe(gulp.dest("build/js"))
+    .pipe(gulp.dest(paths.output.js))
     .pipe(connect.reload());
 });
 
 gulp.task("image", function() {
-  return gulp.src(paths.img)
+  return gulp.src(paths.input.img)
     .pipe(plumber())
     .pipe(imageop({
       optimizationLevel: 5,
       progressive: true,
       interlaced: true
     }))
-    .pipe(gulp.dest('build/img'));
+    .pipe(gulp.dest(paths.output.img));
 });
 
 gulp.task("watch", function() {
