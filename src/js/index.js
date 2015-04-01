@@ -19,7 +19,11 @@
       history.pushState(null, null, target);
       self.scrollToElement(target);
     });
-    $("#galery-carousel").owlCarousel();
+    $("#galery-carousel").owlCarousel({
+      lazyLoad: true,
+      items: 2,
+      autoHeight: true,
+    });
   }
 
   EventHandler.prototype.scrollToElement = function(id) {

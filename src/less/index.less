@@ -43,6 +43,7 @@
 header {
   position: absolute;
   top: 0;
+  z-index: 100000;
   transition: height @affix-transition/2;
   box-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
   width: 100%;
@@ -417,6 +418,11 @@ header {
 .container {
   @media(max-width: 775px) {
     margin: 5px;
+  }
+  #galery-carousel img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 }
 footer {
