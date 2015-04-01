@@ -1,28 +1,35 @@
 (function($) {
   'use strict';
+  if (window.location.hash) {
+    setTimeout(function() {
+      var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;
+      window.scrollTo(0, $(window.location.hash).offset().top - offset);
+    }, 100);
+  }
 
   function EventHandler() {
     var self = this;
     this.navbarOpen = false;
-
-    function scrollToElement(id) {
-      var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;
-      $(id)[0].scrollIntoView();
-      scrollBy(0, -offset);
-      console.log(id, offset);
-    }
-    scrollToElement(window.location.hash); // Scroll to element on load
     $(".nav-toggle").click(this.toggleNav.bind(this));
     $(document).click(this.hiddeNav.bind(this));
-    //$(window).resize(this.resizeText.bind(this));
 
     $('nav ul li a').click(function(event) {
       event.preventDefault();
-      window.location.hash = $(this).attr('href');
-      scrollToElement(window.location.hash);
+      var target = $(this).attr('href');
+      history.pushState(null, null, target);
+      self.scrollToElement(target);
     });
   }
 
+  EventHandler.prototype.scrollToElement = function(id) {
+    var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;
+    $('html,body').animate({
+        scrollTop: $(id).offset().top - offset
+      }, {
+        easing: "easeOutExpo"
+      },
+      1000);
+  };
 
   EventHandler.prototype.toggleNav = function() {
     var button = $(".nav-toggle");
