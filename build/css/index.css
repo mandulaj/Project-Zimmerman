@@ -40,13 +40,13 @@ header .background div {
   transition: filter 0.3s, height 0.3s;
   -webkit-filter: blur(0);
           filter: blur(0);
-  -webkit-animation: panorama_pan 30s cubic-bezier(0.1, 0, 0.9, 1) 1s 4 alternate;
-          animation: panorama_pan 30s cubic-bezier(0.1, 0, 0.9, 1) 1s 4 alternate;
+  -webkit-animation: panorama_pan 30s cubic-bezier(0.1, 0, 0.9, 1) 1s infinite alternate;
+          animation: panorama_pan 30s cubic-bezier(0.1, 0, 0.9, 1) 1s infinite alternate;
 }
 @media (max-width: 500px) {
   header .background div {
-    -webkit-animation: panorama_pan 50s cubic-bezier(0.1, 0, 0.9, 1) 1s 4 alternate;
-            animation: panorama_pan 50s cubic-bezier(0.1, 0, 0.9, 1) 1s 4 alternate;
+    -webkit-animation: panorama_pan 50s cubic-bezier(0.1, 0, 0.9, 1) 1s infinite alternate;
+            animation: panorama_pan 50s cubic-bezier(0.1, 0, 0.9, 1) 1s infinite alternate;
   }
 }
 @media (min-width: 2140px) {
