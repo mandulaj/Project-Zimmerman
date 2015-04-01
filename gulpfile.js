@@ -95,9 +95,9 @@ gulp.task("image", function() {
 });
 
 gulp.task("watch", function() {
-  gulp.watch(paths.less, ['less']);
-  gulp.watch(paths.js, ['js']);
-  gulp.watch(paths.jade, ['jade']);
+  gulp.watch(paths.input.less, ['less']);
+  gulp.watch(paths.input.js, ['js']);
+  gulp.watch(paths.input.jade, ['jade']);
 });
 
 gulp.task('default', ["connect", "less", "jade", "js", "image", "watch"]);
