@@ -19,6 +19,7 @@
       history.pushState(null, null, target);
       self.scrollToElement(target);
     });
+    $("#galery-carousel").owlCarousel();
   }
 
   EventHandler.prototype.scrollToElement = function(id) {
