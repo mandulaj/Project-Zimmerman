@@ -1,0 +1,13 @@
+@background-image-src-blur: url("/img/panorama_blur.jpg");
+@affix-transition: 0.3s;
+
+footer {
+  background: #007e91;
+  background-image: @background-image-src-blur;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  width: 100%;
+  height: 200px;
+  transition: height @affix-transition;
+  box-shadow: 0 -2px 30px rgba(0, 0, 0, 0.55);
+}
