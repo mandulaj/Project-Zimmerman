@@ -43,46 +43,40 @@ block header
 
 
 block content
+  // About me section
   .row#O-me
-    h2 O mě
-    p <strong>Kateřina Mandulová:</strong> právnička a nezávislá cestovatelka. Na cestách ztrávila více než tři roky života. Stopem procestovala Sibiř a Dálný východ, americký divoký západ, jihoamerické Altiplano i poušť Atakama, tibetskou náhorní plošinu, pákistánský Karakoram, kazašskou step i gruzinsko-turecké pohraničí. Často křižuje Evropu, proto i Vás si někdy může stopnout na evopských dálnicích.
-  .row#Kniha
-    h2 Kniha
-    .col-xs-12
-      .book-container
-        .bk-book.book-1.bk-bookdefault
-          .bk-front
-            .bk-cover
-            .bk-cover-back
-          .bk-page
-            .bk-content.bk-content-current
-              p
-                | Red snapper Kafue pike fangtooth humums slipmouth, salmon cutlassfish; swallower European perch mola mola sunfish, threadfin bream. Billfish hog sucker trout-perch lenok orbicular velvetfish. Delta smelt striped bass, medusafish dragon goby starry flounder cuchia round whitefish northern anchovy spadefish merluccid hake cat shark Black pickerel. Pacific cod.
-            .bk-content
-              p
-                | Whale catfish leatherjacket deep sea anglerfish grenadier sawfish pompano dolphinfish carp large-eye bream, squeaker amago. Sandroller; rough scad, tiger shovelnose catfish snubnose parasitic eel? Black bass soldierfish duckbill--Rattail Atlantic saury Blind shark California halibut; false trevally warty angler!
-            .bk-content
-              p
-                | Trahira giant wels cutlassfish snapper koi blackchin mummichog mustard eel rock bass whiff murray cod. Bigmouth buffalo ling cod giant wels, sauger pink salmon. Clingfish luderick treefish flatfish Cherubfish oldwife Indian mul gizzard shad hagfish zebra danio. Butterfly ray lizardfish ponyfish muskellunge Long-finned sand diver mullet swordfish limia ghost carp filefish.
-          .bk-back
-            p
-              | In this nightmare vision of cats in revolt, fifteen-year-old Alex and his friends set out on a diabolical orgy of robbery, rape, torture and murder. Alex is jailed for his teenage delinquency and the State tries to reform him - but at what cost?
-          .bk-right
-          .bk-left
-            h2
-              span Kateřina Mandulová
-              span Vladivostop
-          .bk-top
-          .bk-bottom
-        .bk-info
-          button.bk-bookback Flip
-          button.bk-bookview View inside
-          h3
-            span Anthony Burghiss
-            span A Catwork Orange
-          p
-            | Social prophecy? Black comedy? Study of freewill? A Clockwork Orange is all of these. It is also a dazzling experiment in language, as Burghiss creates a new language - &apos;meow&apos;, the cat slang of a not-too-distant future.
+    .container
+      .row
+        h2 O mě
+      .row
+        p <strong>Kateřina Mandulová:</strong> právnička a nezávislá cestovatelka. Na cestách ztrávila více než tři roky života. Stopem procestovala Sibiř a Dálný východ, americký divoký západ, jihoamerické Altiplano i poušť Atakama, tibetskou náhorní plošinu, pákistánský Karakoram, kazašskou step i gruzinsko-turecké pohraničí. Často křižuje Evropu, proto i Vás si někdy může stopnout na evopských dálnicích.
 
+  // Book Section
+  .row#Kniha
+    .container
+      .row
+        h2 Kniha
+      .row
+        .col-md-4
+          .clickme-book
+            span Klikni na mě!
+        .col-xs-12.col-md-4#book-div
+          .book-container
+            .bk-book.book-1.bk-bookdefault
+              .bk-front
+                .bk-cover
+                .bk-cover-back
+              .bk-back
+              .bk-right
+              .bk-left
+                h2
+                  span Kateřina Mandulová
+                  span Vladivostop
+              .bk-top
+              .bk-bottom
+
+
+  // Gallery section
   .row#Galerie
     h2 Galerie
     .owl-carousel#gallery-carousel
@@ -117,19 +111,37 @@ block content
       .item
         img(class="lazyOwl" data-src="/img/events/Rumunsko.jpg")
 
-
+  // Future events section
   .row#Chystane-akce
-    h2 Chystané akce
-    p Qui exercitation ipsum culpa commodo velit adipisicing sint labore ex et. Culpa dolor enim laborum non nisi nisi consequat proident veniam ea cillum nostrud. Nostrud ad laboris reprehenderit ad tempor. Est qui do laboris aute velit. Reprehenderit eu exercitation ullamco proident sit. Mollit cillum duis aliquip nulla amet exercitation duis eu officia et commodo sint adipisicing. Laborum officia ipsum exercitation mollit quis dolor proident mollit culpa culpa elit ex. Quis amet minim consequat velit ex et labore excepteur amet amet ad. Duis id elit nulla in nisi pariatur ad mollit non et cupidatat excepteur sint occaecat.
+    .container
+      .row
+        h2 Chystané akce
+      .row
+        p Qui exercitation ipsum culpa commodo velit adipisicing sint labore ex et. Culpa dolor enim laborum non nisi nisi consequat proident veniam ea cillum nostrud. Nostrud ad laboris reprehenderit ad tempor. Est qui do laboris aute velit. Reprehenderit eu exercitation ullamco proident sit. Mollit cillum duis aliquip nulla amet exercitation duis eu officia et commodo sint adipisicing. Laborum officia ipsum exercitation mollit quis dolor proident mollit culpa culpa elit ex. Quis amet minim consequat velit ex et labore excepteur amet amet ad. Duis id elit nulla in nisi pariatur ad mollit non et cupidatat excepteur sint occaecat.
+
+  // Articles Section
   .row#Clanky
-    h2 Články
-    p Duis laboris Lorem do velit quis officia non quis magna officia ipsum commodo ullamco. Elit aute non sit do deserunt magna magna laboris. Adipisicing laborum ipsum ullamco pariatur ea et consectetur officia. Adipisicing aliquip incididunt ad ad id tempor ipsum duis Lorem exercitation ullamco nostrud. Quis aute est anim commodo ad fugiat laborum laborum ut anim et. Reprehenderit deserunt occaecat ea duis pariatur sunt veniam aliqua ex consectetur nisi eiusmod. Veniam velit aute dolor elit magna cillum sit qui Lorem eu amet aliquip ipsum labore. Sint sit do deserunt minim ea est mollit quis.
+    .container
+      .row
+        h2 Články
+      .row
+        p Duis laboris Lorem do velit quis officia non quis magna officia ipsum commodo ullamco. Elit aute non sit do deserunt magna magna laboris. Adipisicing laborum ipsum ullamco pariatur ea et consectetur officia. Adipisicing aliquip incididunt ad ad id tempor ipsum duis Lorem exercitation ullamco nostrud. Quis aute est anim commodo ad fugiat laborum laborum ut anim et. Reprehenderit deserunt occaecat ea duis pariatur sunt veniam aliqua ex consectetur nisi eiusmod. Veniam velit aute dolor elit magna cillum sit qui Lorem eu amet aliquip ipsum labore. Sint sit do deserunt minim ea est mollit quis.
+
+  // Blog Section
   .row#Blog
-    h2 Blog
-    p Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.
+    .container
+      .row
+        h2 Blog
+      .row
+        p Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.
+
+  // Contact Section
   .row#Kontakt
-    h2 Kontakt
-    p Eu labore incididunt in laborum nostrud nostrud fugiat nisi. Aliqua id ipsum ut ex consectetur aute ullamco culpa. Laboris anim enim minim anim eu minim dolore. Eiusmod Lorem sunt tempor velit voluptate. Et reprehenderit tempor dolor excepteur amet nulla labore proident mollit proident fugiat excepteur. Cillum qui commodo exercitation et reprehenderit enim irure sit excepteur. Adipisicing elit duis eu sit consequat. Sunt dolor est eu ullamco culpa dolore aliquip veniam sint sint culpa. Sunt ex officia culpa ea labore.
+    .container
+      .row
+        h2 Kontakt
+      .row
+        p Eu labore incididunt in laborum nostrud nostrud fugiat nisi. Aliqua id ipsum ut ex consectetur aute ullamco culpa. Laboris anim enim minim anim eu minim dolore. Eiusmod Lorem sunt tempor velit voluptate. Et reprehenderit tempor dolor excepteur amet nulla labore proident mollit proident fugiat excepteur. Cillum qui commodo exercitation et reprehenderit enim irure sit excepteur. Adipisicing elit duis eu sit consequat. Sunt dolor est eu ullamco culpa dolore aliquip veniam sint sint culpa. Sunt ex officia culpa ea labore.
 
 
 
