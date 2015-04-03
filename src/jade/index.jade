@@ -141,8 +141,12 @@ block content
       .row
         h2 Kontakt
       .row
-        p Eu labore incididunt in laborum nostrud nostrud fugiat nisi. Aliqua id ipsum ut ex consectetur aute ullamco culpa. Laboris anim enim minim anim eu minim dolore. Eiusmod Lorem sunt tempor velit voluptate. Et reprehenderit tempor dolor excepteur amet nulla labore proident mollit proident fugiat excepteur. Cillum qui commodo exercitation et reprehenderit enim irure sit excepteur. Adipisicing elit duis eu sit consequat. Sunt dolor est eu ullamco culpa dolore aliquip veniam sint sint culpa. Sunt ex officia culpa ea labore.
-
+        form#contact-form(method="POST" action="//formspree.io/jakub.aludnam@gmail.com")
+          input(type="text" name="name")
+          input(type="email" name="_replyto")
+          input(type="text" name="message")
+          input(type="text" name="_gotcha" style="display:none")
+          input(type="submit" value="Send")
 
 
 block scripts
