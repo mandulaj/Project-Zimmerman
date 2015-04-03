@@ -23,8 +23,7 @@
     // Gallery
     $("#gallery-carousel").owlCarousel({
       lazyLoad: true,
-      items: 2,
-      autoHeight: true,
+      items: 1,
     });
 
 
@@ -103,6 +102,67 @@
       }
 
     } );
+
+    // Form
+
+    $('#contact-form > input').each(function () {
+      if ($(this).attr("name") === "_gotcha") return;
+      /* Save original values */
+      var originalValue = $(this).attr('value');
+      /* Wrap text fields in div for flipping */
+      $(this).wrap('<div class="field-wrap"></div>');
+      /* Insert div to show value on reverse side */
+      $(this).after('<div class="field-value">' + originalValue + '</div>');
+      /* Set the actual inputs to blank */
+      $(this).val('');
+      /* When typing, update the div on the reverse side. If no text, revert to original */
+      $(this).on('input', function () {
+          var newValue = $(this).val();
+          if (newValue.length > 0) {
+              $(this).next('.field-value').html(newValue);
+          } else {
+              $(this).next('.field-value').html(originalValue);
+          }
+      });
+      /* On blur, flip back */
+      $(this).on('focusout', function () {
+          $(this).parent().removeClass('flip');
+      });
+
+
+      // Clicking the input fields
+      $(this).parent().on('click', function (event) {
+        $(this).addClass('flip');
+        $(this).find('input').focus();
+      });
+    });
+
+    // Click on textAREA
+    $(document).on('focus', 'textarea', function (event) {
+        $(this).css('minHeight', '200px');
+    });
+    $(document).on('blur', 'textarea', function (event) {
+        $(this).css('minHeight', '');
+    });
+
+    /* Make tabbing work again */
+    $(document).keydown(function (event) {
+        if (event.keyCode != 9) return;
+        var inputs = $('input, textarea');
+        var maxIndex = inputs.length;
+        var currIndex = inputs.index(event.target);
+        var targetIndex = 0;
+        if (event.shiftKey) {
+            // go up the form
+            targetIndex = currIndex - 1;
+            if (targetIndex <= 0) targetIndex = maxIndex - 1;
+        } else {
+            // Go down the form
+            targetIndex = currIndex + 1;
+            if (targetIndex >= maxIndex) targetIndex = 0;
+        }
+        inputs.eq(targetIndex).click();
+    });
   }
 
   EventHandler.prototype.scrollToElement = function(id) {

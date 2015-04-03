@@ -82,34 +82,79 @@ block content
     .owl-carousel#gallery-carousel
       .item
         img(class="lazyOwl" data-src="/img/events/2003_Tibet.jpg")
+        .img-description
+          h3 Tibet
+          p 2003
       .item
         img(class="lazyOwl" data-src="/img/events/2006_Cadar.jpg")
+        .img-description
+          h3 Cadar
+          p 2006
       .item
         img(class="lazyOwl" data-src="/img/events/2008_Gruzie.jpg")
+        .img-description
+          h3 Gruzie
+          p 2008
       .item
         img(class="lazyOwl" data-src="/img/events/2009_Cina.jpg")
+        .img-description
+          h3 Cina
+          p 2009
       .item
         img(class="lazyOwl" data-src="/img/events/2009_Lamo_Sche.jpg")
+        .img-description
+          h3 Lamo Sche
+          p 2009
       .item
         img(class="lazyOwl" data-src="/img/events/2009_Sibir.jpg")
+        .img-description
+          h3 Sibir
+          p 2009
       .item
         img(class="lazyOwl" data-src="/img/events/2009_Tibet.jpg")
+        .img-description
+          h3 Tibet
+          p 2009
       .item
         img(class="lazyOwl" data-src="/img/events/2010_Gharwal.jpg")
+        .img-description
+          h3 Gharwal
+          p 2010
       .item
         img(class="lazyOwl" data-src="/img/events/2011_Chan_Tengri.jpg")
+        .img-description
+          h3 Chan Tengri
+          p 2011
       .item
         img(class="lazyOwl" data-src="/img/events/2012_Pakistan.jpg")
+        .img-description
+          h3 Pakistan
+          p 2012
       .item
         img(class="lazyOwl" data-src="/img/events/2013_Aconcagua.jpg")
+        .img-description
+          h3 Aconcagua
+          p 2013
       .item
         img(class="lazyOwl" data-src="/img/events/2013_Chile.jpg")
+        .img-description
+          h3 Chile
+          p 2013
       .item
         img(class="lazyOwl" data-src="/img/events/2013_Spiti_Kinnaur.jpg")
+        .img-description
+          h3 Spiti Kinnaur
+          p 2013
       .item
         img(class="lazyOwl" data-src="/img/events/2014_Tajikistan.jpg")
+        .img-description
+          h3 Tajikistan
+          p 2014
       .item
         img(class="lazyOwl" data-src="/img/events/Rumunsko.jpg")
+        .img-description
+          h3 Rumunsko
+          p 2014
 
   // Future events section
   .row#Chystane-akce
@@ -141,12 +186,13 @@ block content
       .row
         h2 Kontakt
       .row
-        form#contact-form(method="POST" action="//formspree.io/jakub.aludnam@gmail.com")
-          input(type="text" name="name")
-          input(type="email" name="_replyto")
-          input(type="text" name="message")
-          input(type="text" name="_gotcha" style="display:none")
-          input(type="submit" value="Send")
+        .col-md-8.col-md-offset-2
+          form#contact-form(method="POST" action="//formspree.io/jakub.aludnam@gmail.com")
+            input(type="text" name="name" value="Jméno")
+            input(type="email" name="_replyto" value="Email")
+            textarea() Zpráva
+            input(type="text" name="_gotcha" style="display:none")
+            button(type="submit") Odeslat
 
 
 block scripts
