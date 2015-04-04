@@ -7,6 +7,7 @@
     }, 100);
   }
 
+  var DATA_KEY_COMING_UP = "13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8";
   // Event setup, handler
   function EventHandler(app) {
     var self = this;
@@ -219,10 +220,38 @@
 
   }
 
+  GUI.prototype.drawCommingUp = function(data) {
+    if(data.length > 0) {
+      var ts = "<table class='table'>"
+      ts += "<thead><tr><th>Nazev</th><th>Kdy</th><th>Kde</th><th>Co</th><th>Popis</th></thead><tbody>"
+      data.forEach(function (data) {
+        ts += "<tr>";
+        ts += "<td>" + data.name + "</td>";
+        ts += "<td>" + data.when + "</td>";
+        ts += "<td>" + data.where + "</td>";
+        ts += "<td>" + data.what + "</td>";
+        ts += "<td>" + data.description + "</td>";
+        ts += "</tr>"
+      });
+      ts += "</tbody></table>"
+      console.log(ts)
+      $(".coming-up").html(ts);
+    }
+  };
+
   // Main App
   function App(){
+    var self = this;
     this.handler = new EventHandler(this);
     this.gui = new GUI(this)
+
+    this.getGoogleData(DATA_KEY_COMING_UP, "0", function (err, data) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      self.gui.drawCommingUp(data);
+    });
   }
 
   App.prototype.getGoogleData = function(sheetId, gid, cb) {
@@ -242,10 +271,5 @@
   // https://spreadsheets.google.com/feeds/cells/13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8/od6/public/basic?alt=json
   $(document).ready(function() {
     var app = new App();
-    app.getGoogleData("13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8", "0", function(err, data){
-      console.log(err, data)
-    });
-
-
   });
 })($, Papa);
