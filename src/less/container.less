@@ -1,3 +1,4 @@
+@background-image-src-blur-color: #1E4F9B;
 
 .container-fluid {
   //padding-right: 0;
@@ -72,7 +73,7 @@
     display:block;
     margin:0 auto;
     width: 100%;
-
+    margin-bottom: 30px;
 
     .field-wrap {
       display:inline-block;
@@ -105,7 +106,7 @@
         transform: rotateX(0deg);
         backface-visibility: hidden;
         padding: 10px;
-        background: #57A8C2;
+        background: @background-image-src-blur-color;
         color: #fff;
         width: 100%;
         font-size: 15px;
@@ -134,18 +135,25 @@
     }
     textarea {
         width:100%;
-        font-size: 15;
+        font-size: 15px;
         margin:5px 0;
         padding: 10px;
         outline:none;
         border:none;
-        background: #57A8C2;
+        background: @background-image-src-blur-color;
         color: #fff;
         transition:all .3s ease-out;
         font-weight: bold;
     }
     textarea:focus {
         background:#5C84EB;
+    }
+
+    button {
+      border: 1px solid #eee;
+      border-radius: 3px;
+      padding: 5px;
+      background: @background-image-src-blur-color;
     }
 
   }

@@ -142,11 +142,19 @@
     });
 
     // Click on textAREA
+    var textareamsg = $('textarea').html();
+    $('textarea').html("").val(textareamsg)
     $(document).on('focus', 'textarea', function (event) {
         $(this).css('minHeight', '200px');
+        if ($(this).val() === textareamsg) {
+          $(this).val("");
+        }
     });
     $(document).on('blur', 'textarea', function (event) {
         $(this).css('minHeight', '');
+        if ($(this).val() === "") {
+          $(this).val(textareamsg);
+        }
     });
 
     /* Make tabbing work again */
