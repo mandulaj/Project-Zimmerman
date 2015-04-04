@@ -1,4 +1,4 @@
-(function($) {
+(function($, Papa) {
   'use strict';
   if (window.location.hash) {
     setTimeout(function() {
@@ -7,8 +7,11 @@
     }, 100);
   }
 
-  function EventHandler() {
+  // Event setup, handler
+  function EventHandler(app) {
     var self = this;
+    this.app = app;
+
     this.navbarOpen = false;
     $(".nav-toggle").click(this.toggleNav.bind(this));
     $(document).click(this.hiddeNav.bind(this));
@@ -200,22 +203,49 @@
     button.removeClass("dropped");
 
   };
-  // EventHandler.prototype.resizeText = function() {
-  //   if ($("header").hasClass("affix")) {
-  //     var width = window.innerWidth;
-  //     if (width < 430) {
-  //       var height = (width - 65) / 11
-  //       $("header .content h1").css("font-size", height + "px")
-  //     } else {
-  //       $("header .content h1").css("font-size", "")
-  //     }
-  //   }
-  // };
 
+  EventHandler.prototype.submitForm = function(data){
+    $.ajax("http://formspree.io/jakub.aludnam@gmail.com",{
+      cache: false,
+      data: data,
+      success: function(data) {
 
+      }
+    });
+  };
+  // GUI operations
+  function GUI(app){
+    this.app = app;
 
+  }
+
+  // Main App
+  function App(){
+    this.handler = new EventHandler(this);
+    this.gui = new GUI(this)
+  }
+
+  App.prototype.getGoogleData = function(sheetId, gid, cb) {
+    var url = "http://docs.google.com/feeds/download/spreadsheets/Export?key=" + sheetId + "&exportFormat=csv&gid="+ gid
+
+    Papa.parse(url, {
+      download: true,
+      dynamicTyping: true,
+      header: true,
+      complete: function(result){
+        if (result.errors.length > 0) return cb(result.errors, null);
+        return cb(null, result.data);
+      }
+    })
+  };
+
+  // https://spreadsheets.google.com/feeds/cells/13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8/od6/public/basic?alt=json
   $(document).ready(function() {
-    var handler = new EventHandler();
+    var app = new App();
+    app.getGoogleData("13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8", "0", function(err, data){
+      console.log(err, data)
+    });
+
 
   });
-})($);
+})($, Papa);
