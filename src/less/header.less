@@ -2,6 +2,7 @@
 @link-transition: 0.2s;
 @background-image-src: url("/img/panorama.jpg");
 @background-image-src-blur: url("/img/panorama_blur.jpg");
+@background-image-src-blur-color: #1E4F9B;
 @header-font-color: white;
 
 
@@ -333,7 +334,8 @@ header {
     .background {
       height: 78px !important;
       div {
-        background-image: @background-image-src-blur;
+        //background-image: @background-image-src-blur;
+        background: @background-image-src-blur-color;
         // Makes ghost effect
         //filter: blur(3px);
         @media(max-width: 427px) {
