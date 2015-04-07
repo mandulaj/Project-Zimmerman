@@ -9,6 +9,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   jade = require('gulp-jade'),
   imageop = require('gulp-image-optimization'),
+  changed = require('gulp-changed'),
   exec = require('child_process').exec;
 
 
@@ -17,7 +18,7 @@ var paths = {
     js: "src/js/**/*js",
     less: "src/less/**/*.less",
     jade: "src/jade/**/*.jade",
-    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg']
+    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg', 'src/img/**/*.*']
   },
   output: {
     js: "build/js",
@@ -86,6 +87,7 @@ gulp.task("js", function() {
 gulp.task("image", function() {
   return gulp.src(paths.input.img)
     .pipe(plumber())
+    .pipe(changed(paths.output.img))
     .pipe(imageop({
       optimizationLevel: 5,
       progressive: true,
@@ -98,6 +100,7 @@ gulp.task("watch", function() {
   gulp.watch(paths.input.less, ['less']);
   gulp.watch(paths.input.js, ['js']);
   gulp.watch(paths.input.jade, ['jade']);
+  gulp.watch(paths.input.img, ['image']);
 });
 
 gulp.task('default', ["connect", "less", "jade", "js", "image", "watch"]);

@@ -119,7 +119,7 @@
     });
 
     $(".book-1").click(function() {
-      window.location.replace("/knizka");
+      window.location.replace("/kniha");
     });
 
     // Form
