@@ -118,6 +118,10 @@
 
     });
 
+    $(".book-1").click(function() {
+      window.location.replace("/knizka");
+    });
+
     // Form
 
     $('#contact-form > input').each(function() {
