@@ -1,28 +1,22 @@
-@background-image-src-blur-color: #1E4F9B;
-
+@background-image-src-blur-color: #1e4f9b;
 .container-fluid {
   //padding-right: 0;
   //padding-left: 0;
-
   @media(max-width: 775px) {
-    .container{
+    .container {
       margin-right: 5px;
       margin-left: 5px;
     }
   }
-
-
   h2 {
     text-align: center;
   }
   p {
     font-size: 20px;
   }
-  #gallery-carousel{
-
+  #gallery-carousel {
     .item {
       overflow: hidden;
-
       .img-description {
         position: absolute;
         bottom: 0;
@@ -30,15 +24,15 @@
         width: 100%;
         padding-left: 15px;
         background: rgba(0,0,0,0.15);
-        opacity:1;
+        opacity: 1;
         color: #fff;
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
       }
       img {
         display: block;
         width: 100%;
         height: auto;
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
       }
       &:hover {
         img {
@@ -56,107 +50,99 @@
       }
     }
   }
-
   .coming-up {
     p.blank {
       margin-top: 20px;
       margin-bottom: 20px;
       text-align: center;
       font-size: 35px;
-      color: #BBB
+      color: #bbb;
     }
   }
-
-
   form#contact-form {
     perspective: 300;
-    display:block;
-    margin:0 auto;
+    display: block;
+    margin: 0 auto;
     width: 100%;
     margin-bottom: 30px;
-
     .field-wrap {
-      display:inline-block;
-      position:relative;
-      height:50px;
+      display: inline-block;
+      position: relative;
+      height: 50px;
       width: 50%;
-      padding:0;
-      margin:5px 0;
-      line-height:0;
-      font-size:0;
-      cursor:pointer;
-      transition:all .2s ease-out;
-      transform:rotateX(0deg);
+      padding: 0;
+      margin: 5px 0;
+      line-height: 0;
+      font-size: 0;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      transform: rotateX(0deg);
       transform-style: preserve-3d;
       backface-visibility: hidden;
     }
     .field-desc {
-        font-size:10px;
-        text-transform:uppercase;
+      font-size: 10px;
+      text-transform: uppercase;
     }
     .field-value {
-        position: absolute;
-        white-space:nowrap;
-        overflow:hidden;
-        top: 0;
-        left: 0;
-        height: 50px;
-        line-height: 25px;
-        padding-top: 0;
-        transform: rotateX(0deg);
-        backface-visibility: hidden;
-        padding: 10px;
-        background: @background-image-src-blur-color;
-        color: #fff;
-        width: 100%;
-        font-size: 15px;
-        box-sizing: border-box;
-        font-weight: bold;
+      position: absolute;
+      white-space: nowrap;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      height: 50px;
+      line-height: 25px;
+      padding-top: 0;
+      transform: rotateX(0deg);
+      backface-visibility: hidden;
+      padding: 10px;
+      background: @background-image-src-blur-color;
+      color: #fff;
+      width: 100%;
+      font-size: 15px;
+      box-sizing: border-box;
+      font-weight: bold;
     }
     input {
-        border:none;
-        height:50px;
-        width:100%;
-        padding:0 10px;
-        font-size:16px;
-        line-height:1em;
-        margin:0;
-        outline:none;
-        transform:rotateX(180deg);
-        backface-visibility: hidden;
-
+      border: none;
+      height: 50px;
+      width: 100%;
+      padding: 0 10px;
+      font-size: 16px;
+      line-height: 1em;
+      margin: 0;
+      outline: none;
+      transform: rotateX(180deg);
+      backface-visibility: hidden;
     }
     input:focus {
-        background: #5C84EB;
-        color: #FFF;
+      background: #5c84eb;
+      color: #fff;
     }
     .flip {
-        transform:rotateX(-180deg);
+      transform: rotateX(-180deg);
     }
     textarea {
-        width:100%;
-        font-size: 15px;
-        margin:5px 0;
-        padding: 10px;
-        outline:none;
-        border:none;
-        background: @background-image-src-blur-color;
-        color: #fff;
-        transition:all .3s ease-out;
-        font-weight: bold;
+      width: 100%;
+      font-size: 15px;
+      margin: 5px 0;
+      padding: 10px;
+      outline: none;
+      border: none;
+      background: @background-image-src-blur-color;
+      color: #fff;
+      transition: all 0.3s ease-out;
+      font-weight: bold;
     }
     textarea:focus {
-        background:#5C84EB;
+      background: #5c84eb;
     }
-
     button {
       border: 1px solid #eee;
       border-radius: 3px;
       padding: 5px;
       background: @background-image-src-blur-color;
     }
-
   }
-
   @import "book.less";
 }

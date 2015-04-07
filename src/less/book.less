@@ -1,37 +1,27 @@
-
-
-
 .clickme-book {
   transform: rotate(-5deg);
   span {
     font-size: 20px;
     font-weight: bold;
-    font-family: "Arial"
+    font-family: "Arial";
   }
 }
-
-
 #book-div {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-
   /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
-
   .clearfix {
     *zoom: 1;
-
     &:before,
     &:after {
       content: " ";
       display: table;
     }
-
     &:after {
       clear: both;
     }
   }
-
   .book-container {
     position: relative;
     width: 282px;
@@ -40,7 +30,6 @@
     perspective: 1800px;
     padding-top: 20px;
     padding-bottom: 50px;
-
     *,
     *:after,
     *:before {
@@ -53,32 +42,27 @@
       width: 100%;
       height: 400px;
       transform-style: preserve-3d;
-      transition: transform .5s;
-
+      transition: transform 0.5s;
       &.bk-bookdefault:hover {
         transform: rotate3d(0,1,0,35deg);
       }
     }
-
     .bk-book > div,
     .bk-front > div {
       display: block;
       position: absolute;
     }
-
     .bk-front {
       transform-style: preserve-3d;
-      transform-origin: 0% 50%;
-      transition: transform .5s;
+      transform-origin: 0 50%;
+      transition: transform 0.5s;
       transform: translate3d(0,0,20px);
       z-index: 10;
-
       & > div {
         backface-visibility: hidden;
         transform-style: preserve-3d;
       }
     }
-
     .bk-page {
       transform: translate3d(0,0,19px);
       display: none;
@@ -88,20 +72,17 @@
       backface-visibility: hidden;
       z-index: 9;
     }
-
     .bk-front,
     .bk-back,
     .bk-front > div {
       width: 282px;
       height: 400px;
     }
-
     .bk-left,
     .bk-right {
       width: 40px;
       left: -20px;
     }
-
     .bk-top,
     .bk-bottom {
       width: 295px;
@@ -109,71 +90,55 @@
       top: -15px;
       backface-visibility: hidden;
     }
-
     .bk-back {
       transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
       box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
       border-radius: 3px 0 0 3px;
     }
-
     .bk-cover-back {
       background-color: #000;
       transform: rotate3d(0,1,0,-180deg);
     }
-
     .bk-right {
       height: 390px;
       top: 5px;
       transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
       backface-visibility: hidden;
     }
-
     .bk-left {
       height: 400px;
       transform: rotate3d(0,1,0,-90deg);
     }
-
     .bk-top {
       transform: rotate3d(1,0,0,90deg);
     }
-
     .bk-bottom {
       transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
     }
-
     /* Transform classes */
-
     .bk-viewinside .bk-front {
       transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
     }
-
     .bk-book.bk-viewinside {
       transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
     }
-
     .bk-book.bk-viewback {
       transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
     }
-
     .bk-viewback .bk-back {
       z-index: 10;
     }
-
     /* Main colors and content */
-
     .bk-page,
     .bk-right,
     .bk-top,
     .bk-bottom {
       background-color: #fff;
     }
-
     .bk-front > div {
       border-radius: 0 3px 3px 0;
-      box-shadow:
-        inset 4px 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
     }
-
     .bk-front:after {
       content: '';
       position: absolute;
@@ -182,7 +147,6 @@
       left: -1px;
       width: 1px;
     }
-
     .bk-cover:after,
     .bk-back:after {
       content: '';
@@ -194,7 +158,6 @@
       background: rgba(0,0,0,0.06);
       box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
     }
-
     .bk-back:after {
       left: auto;
       right: 10px;
@@ -206,7 +169,6 @@
     transform-origin: 0 0;
     transform: rotate(90deg) translateY(-40px);
   }
-
   .bk-content {
     position: absolute;
     top: 30px;
@@ -222,12 +184,10 @@
     transition: opacity 0.3s ease-in-out;
     cursor: default;
   }
-
   .bk-content-current {
     opacity: 1;
     pointer-events: auto;
   }
-
   .bk-content p {
     padding: 0 0 10px;
     -webkit-font-smoothing: antialiased;
@@ -237,7 +197,6 @@
     text-align: justify;
     user-select: none;
   }
-
   .bk-page nav {
     display: block;
     text-align: center;
@@ -246,7 +205,6 @@
     z-index: 100;
     cursor: pointer;
   }
-
   .bk-page nav span {
     display: inline-block;
     width: 20px;
@@ -255,26 +213,21 @@
     background: #f0f0f0;
     border-radius: 50%;
   }
-
   /* Individual style & artwork */
-
   /* Book 1 */
   .book-1 .bk-front > div,
   .book-1 .bk-front:after {
     background-color: #fff;
   }
-
   .book-1 .bk-back,
   .book-1 .bk-left {
-    background-color: #64A9BA;
+    background-color: #64a9ba;
   }
-
   .book-1 .bk-cover {
-    background-image: url(/img/23_prebal_01.jpg);
+    background-image: url("/img/23_prebal_01.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
-
   .book-1 .bk-cover h2 {
     position: absolute;
     bottom: 0;
@@ -285,7 +238,6 @@
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
   }
-
   .book-1 .bk-cover h2 span:first-child,
   .book-1 .bk-left h2 span:first-child {
     text-transform: uppercase;
@@ -293,20 +245,16 @@
     font-size: 13px;
     padding-right: 20px;
   }
-
   .book-1 .bk-cover h2 span:first-child {
     display: block;
   }
-
   .book-1 .bk-cover h2 span:last-child,
   .book-1 .bk-left h2 span:last-child {
     font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
   }
-
   .book-1 .bk-content p {
     font-family: Georgia, Times, "Times New Roman", serif;
   }
-
   .book-1 .bk-left h2 {
     color: #fff;
     font-size: 15px;
@@ -314,7 +262,6 @@
     padding-right: 10px;
     text-align: right;
   }
-
   .book-1 .bk-back p {
     color: #fff;
     font-size: 13px;
@@ -322,7 +269,4 @@
     text-align: center;
     font-weight: 700;
   }
-
-
-
 }
