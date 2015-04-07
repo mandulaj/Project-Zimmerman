@@ -1,6 +1,7 @@
 extends ./layout.jade
 
-
+block head
+  include ./includes/head.jade
 
 block header
   header(data-spy="affix"  data-offset-top="40" class="affix-top")
@@ -204,3 +205,7 @@ block scripts
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.min.js")
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.min.js")
   script(type="text/javascript" src="/js/index.js")
+
+
+block footer
+  include ./includes/footer.jade
