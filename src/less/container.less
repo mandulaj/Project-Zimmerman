@@ -1,4 +1,29 @@
 @background-image-src-blur-color: #1e4f9b;
+
+@import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+@keyframes bounce {
+  0% { transform: matrix3d(0.8, 0, 0, 0, 0, 0.8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  3.2% { transform: matrix3d(0.878, 0.082, 0, 0, 0.082, 0.878, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  4.3% { transform: matrix3d(0.903, 0.096, 0, 0, 0.096, 0.903, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  6.41% { transform: matrix3d(0.943, 0.109, 0, 0, 0.109, 0.943, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  8.61% { transform: matrix3d(0.976, 0.106, 0, 0, 0.106, 0.976, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  12.71% { transform: matrix3d(1.01, 0.075, 0, 0, 0.075, 1.01, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  12.91% { transform: matrix3d(1.01, 0.073, 0, 0, 0.073, 1.01, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  17.22% { transform: matrix3d(1.019, 0.036, 0, 0, 0.036, 1.019, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  18.92% { transform: matrix3d(1.018, 0.025, 0, 0, 0.025, 1.018, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  25.23% { transform: matrix3d(1.008, 0, 0, 0, 0, 1.008, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  28.33% { transform: matrix3d(1.004, -0.005, 0, 0, -0.005, 1.004, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  31.43% { transform: matrix3d(1.001, -0.005, 0, 0, -0.005, 1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  39.44% { transform: matrix3d(0.999, -0.003, 0, 0, -0.003, 0.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  56.46% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  61.66% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  81.48% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  83.98% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+}
+
+
 .container-fluid {
   //padding-right: 0;
   //padding-left: 0;
@@ -157,11 +182,12 @@
       span {
         font-size: 33px;
         font-weight: bold;
-
+        font-family: 'Gloria Hallelujah', cursive;
         color: white;
-        text-shadow: 0 0 20px white;
+
       }
       img {
+        margin-top: 20px;
         float: right;
         height: 220px;
       }
@@ -172,9 +198,25 @@
   }
   #O-me {
     box-shadow: inset 0 -7px 20px -7px rgba(0, 0, 0, 0.5);
+    img {
+      margin-bottom: 20px;
+    }
   }
   #Galerie {
       box-shadow: inset 0 7px 20px -7px rgba(0, 0, 0, 0.5)
+  }
+  #Clanky {
+    .article {
+      background: rgb(102, 176, 211);
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 20px;
+      &:hover {
+        animation: bounce 1000ms linear both;
+      }
+    }
   }
 }
 

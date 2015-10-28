@@ -267,6 +267,20 @@
     }
   };
 
+  GUI.prototype.drawArticles = function(articles){
+    var html = "<div class='row'>";
+    var i = 0;
+    articles.forEach(function(article){
+      if (i !== 0 && i%2 === 0) {
+        html += "</div><div class='row'>";
+      }
+      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + article.text + "<p></div></div>";
+      i++;
+    });
+    html += "</div>";
+    $(".articles").html(html);
+  };
+
   // Main App
   function App() {
     var self = this;
@@ -283,8 +297,16 @@
     */
     var data = [
       {name: "Praha",when: "2.3.2000", where: "Tu", what: "asdf", description: "cesta tam a sem"}
-    ]
+    ];
     self.gui.drawComingUp(data);
+
+    var articles = [{title: "clanek 1", date: "2.4.2045", text: "lorem ipsum dolor sit"},
+    {title: "clanek 2", date: "2.4.2043", text: "Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem  ipsum dolor sit"},
+    {title: "clanek 3", date: "2.4.2045", text: "Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
+    {title: "clanek 4", date: "2.4.2045", text: "Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
+    {title: "clanek 5", date: "2.4.2045", text: "lorem ipsum dolor sit"},
+    {title: "clanek 6", date: "2.4.2045", text: "lMollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.orem ipsum dolor sit"}];
+    self.gui.drawArticles(articles);
   }
 
   App.prototype.getGoogleData = function(sheetId, gid, cb) {
