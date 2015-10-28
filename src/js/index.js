@@ -1,5 +1,7 @@
 (function($, Papa) {
   'use strict';
+
+  // Scroll to content if we have a hash
   if (window.location.hash) {
     setTimeout(function() {
       var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;
@@ -7,12 +9,15 @@
     }, 100);
   }
 
+  // API key for data from Google (may be depreciated)
   var DATA_KEY_COMING_UP = "13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8";
+
   // Event setup, handler
   function EventHandler(app) {
     var self = this;
     this.app = app;
 
+    // Mobile nav-bar manipulation
     this.navbarOpen = false;
     $(".nav-toggle").click(this.toggleNav.bind(this));
     $(document).click(this.hiddeNav.bind(this));
@@ -27,11 +32,11 @@
     // Gallery
     $("#gallery-carousel").owlCarousel({
       lazyLoad: true,
-      items: 1,
+      items: 2,
     });
 
 
-    // Books
+    // Book
     var $books = $(".book-container > div.bk-book");
     $books.each(function() {
       var $book = $(this),
