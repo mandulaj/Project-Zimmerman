@@ -407,7 +407,10 @@ header {
 }
 .headspacer {
   transition: margin @affix-transition;
-  margin-bottom: 350px;
+  margin-bottom: 360px;
+  @media(max-width: 770px) {
+    margin-bottom: 330px;
+  }
   @media(max-width: 570px) {
     margin-bottom: 320px;
   }
