@@ -267,7 +267,7 @@
     var self = this;
     this.handler = new EventHandler(this);
     this.gui = new GUI(this);
-
+    /*
     this.getGoogleData(DATA_KEY_COMING_UP, "0", function(err, data) {
       if (err) {
         console.error(err);
@@ -275,6 +275,11 @@
       }
       self.gui.drawCommingUp(data);
     });
+    */
+    var data = [
+      {name: "Praha",when: "2.3.2000", where: "Tu", what: "asdf", description: "cesta tam a sem"}
+    ]
+    self.gui.drawCommingUp(data);
   }
 
   App.prototype.getGoogleData = function(sheetId, gid, cb) {
