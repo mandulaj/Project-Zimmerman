@@ -144,7 +144,38 @@
       background: @background-image-src-blur-color;
     }
   }
-  @import "book.less";
+  #Kniha {
+    // 3D book
+    @import "book.less";
+
+    background: rgba(30, 115, 155, 0.62);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .clickme-book {
+      transform: rotate(-6deg);
+      span {
+        font-size: 33px;
+        font-weight: bold;
+
+        color: white;
+        text-shadow: 0 0 20px white;
+      }
+      img {
+        float: right;
+        height: 220px;
+      }
+      @media(max-width:991px) {
+        display: none;
+      }
+    }
+  }
+  #O-me {
+    box-shadow: inset 0 -7px 20px -7px rgba(0, 0, 0, 0.5);
+  }
+  #Galerie {
+      box-shadow: inset 0 7px 20px -7px rgba(0, 0, 0, 0.5)
+  }
 }
 
 #travelcv{
