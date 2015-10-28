@@ -248,7 +248,7 @@
 
   }
 
-  GUI.prototype.drawCommingUp = function(data) {
+  GUI.prototype.drawComingUp = function(data) {
     if (data.length > 0) {
       var ts = "<table class='table'>";
       ts += "<thead><tr><th>Nazev</th><th>Kdy</th><th>Kde</th><th>Co</th><th>Popis</th></thead><tbody>";
@@ -278,13 +278,13 @@
         console.error(err);
         return;
       }
-      self.gui.drawCommingUp(data);
+      self.gui.drawComingUp(data);
     });
     */
     var data = [
       {name: "Praha",when: "2.3.2000", where: "Tu", what: "asdf", description: "cesta tam a sem"}
     ]
-    self.gui.drawCommingUp(data);
+    self.gui.drawComingUp(data);
   }
 
   App.prototype.getGoogleData = function(sheetId, gid, cb) {
