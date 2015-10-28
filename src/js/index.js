@@ -24,6 +24,7 @@
 
     $('nav ul li a').click(function(event) {
       event.preventDefault();
+      if (!self.navbarOpen) return;
       var target = $(this).attr('href');
       history.pushState(null, null, target);
       self.scrollToElement(target);
