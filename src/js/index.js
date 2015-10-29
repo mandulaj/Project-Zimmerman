@@ -375,22 +375,22 @@
     self.articles = articles;
   }
 
-  App.prototype.getGoogleData = function(sheetId, gid, cb) {
-    var url = "http://docs.google.com/feeds/download/spreadsheets/Export?key=" + sheetId + "&exportFormat=csv&gid=" + gid;
-
-    Papa.parse(url, {
-      download: true,
-      dynamicTyping: true,
-      header: true,
-      complete: function(result) {
-        if (result.errors.length > 0) return cb(result.errors, null);
-        return cb(null, result.data);
-      }
-    });
-  };
+  // App.prototype.getGoogleData = function(sheetId, gid, cb) {
+  //   var url = "http://docs.google.com/feeds/download/spreadsheets/Export?key=" + sheetId + "&exportFormat=csv&gid=" + gid;
+  //
+  //   Papa.parse(url, {
+  //     download: true,
+  //     dynamicTyping: true,
+  //     header: true,
+  //     complete: function(result) {
+  //       if (result.errors.length > 0) return cb(result.errors, null);
+  //       return cb(null, result.data);
+  //     }
+  //   });
+  // };
 
   // https://spreadsheets.google.com/feeds/cells/13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8/od6/public/basic?alt=json
   $(document).ready(function() {
     var app = new App();
   });
-})($, Papa,markdown);
+})($, null,markdown);
