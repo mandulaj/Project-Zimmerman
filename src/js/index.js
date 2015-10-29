@@ -44,16 +44,23 @@
 
     // Gallery
     $("#gallery-carousel").owlCarousel({
-      lazyLoad: true,
+
+      margin: 10,
       autoplay:true,
       autoplayTimeout:1000,
-      // autoplayHoverPause:true,
-      // loop: true,
-      items: 3,
-      itemsDesktop : [1199,2],
-      itemsDesktopSmall : [979,1],
-      itemsTablet: [600,1], //2 items between 600 and 0
-      itemsMobile : false
+      autoplayHoverPause:true,
+      loop: true,
+      responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+      }
     });
 
 
