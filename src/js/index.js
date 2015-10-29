@@ -45,10 +45,8 @@
     // Gallery
     $("#gallery-carousel").owlCarousel({
       lazyLoad: true,
-      autoplay:true,
-      autoplayTimeout:1000,
-      // autoplayHoverPause:true,
-      // loop: true,
+      autoPlay: 7000,
+      stopOnHover: true,
       items: 3,
       itemsDesktop : [1199,2],
       itemsDesktopSmall : [979,1],
