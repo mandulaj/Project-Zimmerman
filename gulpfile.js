@@ -29,7 +29,7 @@ var paths = {
 };
 
 gulp.task('deploy', ['jade', 'less', 'js', 'image'], function(cb) {
-  exec('git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force;git reset HEAD^;git reset build', function(err, stdout, stderr) {
+  exec('git archive --format=tar origin/gh-pages data | tar -xv -C build; git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force; git reset HEAD^;git reset build', function(err, stdout, stderr) {
     if (err) return cb(err); // return error
     console.log(stdout);
     console.log(stderr);

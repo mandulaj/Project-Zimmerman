@@ -1,12 +1,24 @@
-(function($, Papa) {
+(function($, Papa, md) {
   'use strict';
-
   // Scroll to content if we have a hash
   if (window.location.hash) {
     setTimeout(function() {
       var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;
       window.scrollTo(0, $(window.location.hash).offset().top - offset);
     }, 100);
+  }
+
+  function truncStr(str, n, useWordBoundary){
+         var toLong = str.length>n,
+             s_ = toLong ? str.substr(0,n-1) : str;
+         s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+         return  toLong ? s_ + '&hellip;' : s_;
+  }
+  function parseArticles(articles) {
+    for(var i = 0; i < articles.length; i++) {
+      articles[i].text = md.toHTML(articles[i].text);
+    }
+    return articles;
   }
 
   // API key for data from Google (may be depreciated)
@@ -196,6 +208,13 @@
       }
       inputs.eq(targetIndex).click();
     });
+
+    //Article back button
+    $(".article-back-btn").click(function(){
+      self.app.gui.closeArticle();
+    });
+    //Opening an article
+
   }
 
   EventHandler.prototype.scrollToElement = function(id) {
@@ -243,6 +262,18 @@
       }
     });
   };
+
+  EventHandler.prototype.registerArticles = function() {
+    var self = this;
+    $(".article").click(function(){
+      self.scrollToElement("#Clanky");
+      self.app.gui.openArticle($(this).index(".article"));
+    });
+  };
+
+
+
+
   // GUI operations
   function GUI(app) {
     this.app = app;
@@ -263,7 +294,6 @@
         ts += "</tr>";
       });
       ts += "</tbody></table>";
-      console.log(ts);
       $(".coming-up").html(ts);
     }
   };
@@ -275,11 +305,25 @@
       if (i !== 0 && i%2 === 0) {
         html += "</div><div class='row'>";
       }
-      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + article.text + "<p></div></div>";
+      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + truncStr(article.text, 200, true) + "<p></div></div>";
       i++;
     });
     html += "</div>";
     $(".articles").html(html);
+    this.app.handler.registerArticles();
+  };
+
+  GUI.prototype.openArticle = function(artId) {
+    $(".article-belt").addClass("slide");
+    $("#Clanky").addClass("opened");
+    var article = this.app.articles[artId];
+    $(".article-open").html("<h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + article.text + "<p>");
+  };
+
+  GUI.prototype.closeArticle = function(article) {
+    $(".article-belt").removeClass("slide");
+    $("#Clanky").removeClass("opened");
+    $(".article-open").html("");
   };
 
   // Main App
@@ -302,12 +346,14 @@
     self.gui.drawComingUp(data);
 
     var articles = [{title: "clanek 1", date: "2.4.2045", text: "lorem ipsum dolor sit"},
-    {title: "clanek 2", date: "2.4.2043", text: "Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem  ipsum dolor sit"},
-    {title: "clanek 3", date: "2.4.2045", text: "Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
-    {title: "clanek 4", date: "2.4.2045", text: "Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
+    {title: "clanek 2", date: "2.4.2043", text: "Mollit **non** laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem  ipsum dolor sit.\n ![alt](/img/katka.jpg)"},
+    {title: "clanek 3", date: "2.4.2045", text: "Mollit _non_ laboris laboris veniam eiusmod sit tempor non elit \n ![Image Alt](https://duckduckgo.com/assets/badges/logo_square.64.png)\nconsectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
+    {title: "clanek 4", date: "2.4.2045", text: "#Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
     {title: "clanek 5", date: "2.4.2045", text: "lorem ipsum dolor sit"},
     {title: "clanek 6", date: "2.4.2045", text: "lMollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.orem ipsum dolor sit"}];
+    articles = parseArticles(articles);
     self.gui.drawArticles(articles);
+    self.articles = articles;
   }
 
   App.prototype.getGoogleData = function(sheetId, gid, cb) {
@@ -328,4 +374,4 @@
   $(document).ready(function() {
     var app = new App();
   });
-})($, Papa);
+})($, Papa,markdown);
