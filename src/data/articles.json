@@ -1,0 +1,14 @@
+{
+  articles: [
+    {
+      title: "hello world",
+      data: "10.1.2012",
+      path: "article1.md"
+    },
+    {
+      title: "hello world1",
+      data: "11.1.2012",
+      path: "article2.md"
+    }
+  ]
+}
