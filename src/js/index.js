@@ -14,9 +14,15 @@
   //        s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
   //        return  toLong ? s_ + '&hellip;' : s_;
   // }
+  function parseDate(input) {
+    var parts = input.split(".");
+    return new Date(parts[2],parts[1]-1,parts[0]);
+  }
+
   function parseArticles(articles) {
     for(var i = 0; i < articles.length; i++) {
       articles[i].text = md.toHTML(articles[i].text);
+      // articles[i].date = parseDate(articles[i].date).toLocaleDateString();
     }
     return articles;
   }
@@ -231,7 +237,6 @@
       },
       1000);
   };
-
   EventHandler.prototype.toggleNav = function() {
 
     if (this.navbarOpen) {
@@ -253,7 +258,6 @@
     this.app.gui.hideNav();
 
   };
-
   EventHandler.prototype.submitForm = function(data) {
     $.ajax("http://formspree.io/jakub.aludnam@gmail.com", {
       cache: false,
@@ -263,7 +267,6 @@
       }
     });
   };
-
   EventHandler.prototype.registerArticles = function() {
     var self = this;
     $(".article").click(function(){
@@ -271,9 +274,6 @@
       self.app.gui.openArticle($(this).index(".article"));
     });
   };
-
-
-
 
   // GUI operations
   function GUI(app) {
@@ -306,7 +306,7 @@
       if (i !== 0 && i%2 === 0) {
         html += "</div><div class='row'>";
       }
-      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + article.text + "<p></div></div>";
+      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><p>" + article.text + "<p></div></div>";
       i++;
     });
     html += "</div>";
@@ -320,7 +320,7 @@
     var article = this.app.articles[artId];
     this.app.getFullArticle(article.path, function(htmltext){
       $(".article-open").removeClass("loading");
-      $(".article-open").html("<h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + htmltext + "<p>");
+      $(".article-open").html("<h3>" + article.title + "</h3><p>" + htmltext + "<p>");
     });
   };
 

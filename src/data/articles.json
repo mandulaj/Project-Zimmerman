@@ -2,13 +2,11 @@
   "articles": [
     {
       "title": "hello world",
-      "date": "10.1.2012",
       "text": "blha blah blah",
       "path": "article1.md"
     },
     {
       "title": "hello world1",
-      "date": "11.1.2012",
       "text": "some **more** info lol\n* sdfsd\n* fsd\nfd\nsf",
       "path": "article2.md"
     }
