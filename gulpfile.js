@@ -18,17 +18,19 @@ var paths = {
     js: "src/js/**/*js",
     less: "src/less/**/*.less",
     jade: "src/jade/**/*.jade",
-    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg', 'src/img/**/*.*']
+    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg', 'src/img/**/*.*'],
+    articles: "src/data/**"
   },
   output: {
     js: "build/js",
     css: "build/css",
     img: "build/img",
+    articles: "build/data",
     root: "build"
   }
 };
 
-gulp.task('deploy', ['jade', 'less', 'js', 'image'], function(cb) {
+gulp.task('deploy', ['jade', 'less', 'js', 'image', 'articles'], function(cb) {
   // git archive --format=tar origin/gh-pages data | tar -xv -C build;
   exec('git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force; git reset HEAD^;git reset build', function(err, stdout, stderr) {
     if (err) return cb(err); // return error
@@ -97,11 +99,17 @@ gulp.task("image", function() {
     .pipe(gulp.dest(paths.output.img));
 });
 
+gulp.task("articles", function(){
+  return gulp.src(paths.input.articles)
+    .pipe(gulp.dest(paths.output.articles));
+});
+
 gulp.task("watch", function() {
   gulp.watch(paths.input.less, ['less']);
   gulp.watch(paths.input.js, ['js']);
   gulp.watch(paths.input.jade, ['jade']);
   gulp.watch(paths.input.img, ['image']);
+  gulp.watch(paths.input.articles, ['articles']);
 });
 
-gulp.task('default', ["connect", "less", "jade", "js", "image", "watch"]);
+gulp.task('default', ["connect", "less", "jade", "js", "image","articles", "watch"]);
