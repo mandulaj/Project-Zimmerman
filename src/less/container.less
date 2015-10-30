@@ -209,7 +209,7 @@
     transition: all .4s ease;
     &.opened{
       background: rgba(30, 179, 236, 0.5);
-      box-shadow: inset 0px 0px 25px rgba(0, 0, 0, 0.95);
+      box-shadow: inset 0px 0px 25px rgba(0, 0, 0, 0.4);
     }
 
     .article-belt {
@@ -244,8 +244,13 @@
       img {
         max-width: 100%;
       }
-
-
+      .article-loader {
+        margin-top: 50px;
+        display: inline-block;
+      }
+      &.loading {
+        text-align: center;
+      }
     }
   }
 }
