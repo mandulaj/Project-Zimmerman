@@ -1,1 +1,54 @@
-#Hello world
+Kdy popluje příští trajekt z portu Vanina na Sachalin, je snad státním tajemstvím. U malin-
+kého okýnka se mačká chumel dezorientovaných pasažérů. Jsem poslední ve frontě, takže se o místo na palubě rvát nemusím. Lístek na mě nezbyl, což ale nebrání tomu, abych se přeci jen nalodila. Rychlostí dvaceti uzlů za hodinu kurs přístav Cholmsk se přibližuji tomu podivuhodnému ostrovu. Na druhém břehu Tatarského průlivu, ejhle, zase Rusko v plné své postsocialistické kráse. Vylodili jsme se ve tři ráno a už na nás čekají orgány. Prý mám vízum jen do Moskvy a tady jsme na Sachalinu. Nevím, o co jim jde. Chvilku to na mě zkoušejí, pak provedou povinnou registraci a dají pokoj.
+
+![](/img/articles/sachalin/sach2.jpg)
+
+Historie osídlení Sachalinu je krátká, ale spletitá. Rusové zde postavili teprve v roce 1857 trestaneckou kolonii. Car sem posílal trestance za padělání storublové bankovky a politické vězně. Hlavním cílem vyhnanství však bylo přivést na Sachalin ruské osídlení.Teprve r. 1875 se stal Sachalin součástí carského Ruska výměnou za Kurilské ostrovy. Po vítězství nad Ruskem v roce 1905 to tady patřilo čtyřicet let Japoncům, kteří zřídili na jižní části ostrova prefekturu Karafuto. Stačili tu vybudovat veškerou železniční infrastrukturu a ohromné fabriky na celulózu.
+
+Po válce Rusové Japonce vyhnali a snažili se sem všemožně přilákat lidi. Později tady Stalin zřídil gulagy a nechvalně se proslavil nápadem prokopat tunel na pevninu. Zahynula při tom spousta lidí, zbytečně. Výdělky byly na svou dobu slušné. Na Sachalinu dnes vládne na první pohled „rozrucha“. Jen v televizi pořád dokola ukazují, že je vše v pořádku. Ve skutečnosti tu nefunguje vůbec nic. Závody a uhelné doly pozavírali a lidé, než aby tu seděli bez práce, se raději sebrali a odešli hledat štěstí zpátky na pevninu. Zůstávají jen dobrodruzi, romantici a zoufalci.
+
+![](/img/articles/sachalin/sach1.jpg)
+
+####KRASAVICE V BLÁTĚ
+
+Místní tomu tady jinak než „prdel“ neřeknou a dost se diví, kde se tady bere zahraniční návštěvník. Paneláky nad přístavem v Cholmsku mají na svědomí architekti chruščovovské éry. Stojí tu všeho všudy dva kostely, jeden je přestavěné kino, druhý býval dříve casino. Těším se do hlavního města Južno-Sachalinsku, před válkou zvaného Toyohara. Kromě muzea historie toho ve městě po Japoncích mnoho nezůstalo. Snad ještě japonský most, který ale Rusové už stačili ohodit betonem a oloupat z něj ozdobné květinové motivy.
+
+Zato ženské se tu předhánějí, která je větší krasavice. Po rozmlácených chodnících statečně kráčejí na vysokých kram-
+flecích. O to více mi nejde na rozum, proč jsou všichni muži tak zanedbaní. Jakoby velmi intenzivně pociťovali blížící se konec civilizace, který je na Sachalinu obzvláště patrný.
+
+Sám ostrov se podobá rybě. Z jedné strany studené Ochotské moře, z druhé studený Tatarský průliv, uprostřed hustý les. Při procházkách tajgou umírám strachy z medvědů, kteří se tu prý procházejí jako psi po vsi. Kdybych měla být medvědem, chtěla bych se narodit právě na Sachalinu. Říčky se tu jen hemží lososy. Zdejší kaviár posílají přímo do Cannes. Proto tu také pytláctví jenom kvete. Na jikře se vydělávají těžké peníze, zatímco ryba hnije na obrovské hromadě v lese, stěžuje si ekolog Dima, který se snaží černému výlovu zabránit. On sám však nikoho pokutovat nemůže, a tak vodí na zátah proti pytlákům milici, často se u toho i střílí. Jenže tady často pytlačí i sami policajti, a tak honí zloděj zloděje.
+
+
+####ČEŠKA V RUSKÝCH VARECH
+
+Stopuji na sever a jde to špatně. Chudí obyvatelé ostrova nejezdí vůbec nikam, trčí doma, maximálně si vyjedou na houby. V Paranajsku bych se ráda svezla po úzkokolejce, jenže už nefunguje. Lidé ji rozebrali a železo prodali. Když už jsem na nádraží, svezu se jednu stanici. Dědkové a bábušky jsou strašně nervózní, neboť se blíží déšť a oni spěchají na dáču sklidit úrodu, než to všechno přijde vniveč. Popojíždím po kouscích směr Ocha a pomalu mě opouští chuť štrachat se tak daleko. Silnice jsou špatné, asfalt vzácný, gruntovka je rozmytá deštěm.
+
+Po silnicích se prohánějí jen něftěnici. Není to žádný severský národ, jak by se mohlo zdát, ale novodobí přistěhovalci, většinou z Ameriky, co těží v Ochotském zálivu naftu. Jezdí v namakaných jeepech a stopaře evidentně neberou. Do Nogliku dorazím potmě na kamazu a dál už ne! Kousek odtud jsou horké prameny Dagi. Myslím, že takhle nějak vypadaly Karlovy Vary v době Karla IV. Naložená v horké kádi v malé dřevěné budce v dezolátním stavu si mohu gratulovat, že jsem dojela až sem. Léčivé bláto si odpustím, neboť tu není kdo by mi umyl záda. Pramen mladosti bohužel vyschl.
+
+V usedlosti Veni, tvořené dvěma domy, žijí Nivchi, původní obyvatelé ostrova. Jedí ryby a psy. K rybolovu v zálivu nepotřebují povolení, úlovky vozí do fabriky na zpracování ryb. Pracujeme za kopějky, stěžují si. Koupím u nich uzeného loso-
+sa a nabídnou mi, že můžu zůstat. Bába, prabába, obrovský mladý Nivcha s odstálýma ušima a jeho dítě, všichni se motají kolem kamen, neboť od moře duje studený vítr. Nad postelí se suší ryby a tulení kůže. Pohostí mě červenou jikrou, jídlem olympijských boxerů, a vyprávějí mi, jak z jara krmí zemi, vodu, les, aby se měli dobře. Jiné bohy neznají. „Pašli Katěrina na rybalku,“ nechám se přemluvit, obuji vysokánské holinky a nasedám trochu nejistě do loďky připomínající ořechovou skořápku s obřím Nivchou, pomocníkem Žeňovu a namazaným Šulikem. Zvedá se nepříjemný vítr a dělají se vlny. Chlapi trochu zápasí s rybářskými sítěmi, je potřeba je pročistit od mořských řas. Lapíme všeho všudy dvě ubohé rybičky, v takovém nečase neberou, a honem zpátky na břeh. Zastaví se tu známí, smění pár ryb za zavařeniny a za vodku svezou o kousek dál.
+
+####ZÁTIŠÍ S TULENI
+
+Alexandrovsk Sachalinský býval správním centrem ostrova. Osmdesát procent obyvatelstva jsou potomky vězňů „kateržanů“. Civilizace je tady velmi mladá, lidé zde žijí maximálně tři čtyři generace. Pamatuje to tu však i lepší časy. V přístavu najdu jen rozpadající se maják a samé zrezivělé vraky. Kromě nákladů uhlí už sem nic nepřiplouvá. Vyptám si rozpis přílivů a odlivů a vydám se na dlouhatánskou túru po pobřeží směrem na jih. Hlídám si přicházející příliv, brzy se totiž kolem útesů nedá projít. Voda mě několikrát přinutí brodit skalní zátoky. Výlet má několik horolezeckých vsuvek. Oddychnu si jen na širokých kamenitých plážích. Procházím kolem opuštěných rybářských vesnic a marně vyhlížím živáčka.
+
+Dělá to na mě dojem konce civilizace. Společnost mi dělají jen tuleni. Vyhřívají se na šutrech kousek od břehu, ale když se přiblížím, naskáčou do vody a jen na mě zvědavě vykukují. Příroda tu vykouzlila vodopád, který padá přímo do moře. Čekají mě však dost perné chvilky. Břeh je skalistý a moře mě jen tak lehce nepustí. Vlny bijí o skálu, až jsem celá zmáčená. Musím hledat cestu vrchem přes les a několik mysů obejít. Skála se sype pod rukama, není se čeho chytit. Drápu se uježděným žlabem, prodírám se trávou s pichlavými keříky a bahnitou sutí se svezu dolů. Kousek pláže a zase peklíčko. Zas bloudím neprostupnou tajgou. Všechno, jen ne setkání s medvědem, prosím. Kalhoty mám rozervané na cáry, jsem celá podrápaná. Večer si ale vychutnám západ slunce nad Tatarským průlivem, sluníčko jakoby se šlo koupat do obrovské noční vany. Před spaním přemýšlím, jaké kejkle mě čekají zítra.
+
+Další zádrhel představuje řeka Agnivo. Při přílivu je vody odhadem tak po prsa, navíc proud je dost silný. Rozvalím se tedy na břehu, čekám, až opadne voda a lížu si rány. Odpoledne si konečně troufnu brodit. Proud je při odlivu ještě silnější, ale vyzbrojím se dřevěnou holí a překonám řeku se suchou horní polovinou těla. Bude to ještě štreka, do nejbližší vesnice Pilvo je to 87 kilometrů. Pochoduji po dlouhých písčitých plážích a pomalu si zakazuji sbírat škeble a kameny, neboť batoh mi nepříjemně těžkne. Zpívám si na kuráž „Vychadila na běreg Kaťuša“ a modlím se, aby na mě nevybafnul medvěd.
+
+Babo raď, kudy obejít mys Mosuja. Po břehu neprojdu ani při plném odlivu. Chtě nechtě se musím zase vydrápat zarostlou strží, chytám se stébla, prodírám se houštím a kopřivami. Ve vysoké trávě jsem vyplašila lišku. Kamenité pobřeží je zanesené řasami, a tak ťapkám po mořském seně, chvílemi po mořském hnoji. Při přílivu je moře temné a hrozivé a mě bude ještě dlouho hučet v uších. Při odlivu se pak uklidní a jde se o něco líp.
+
+![](/img/articles/sachalin/sach3.jpg)
+
+####KREVETY K VODCE
+
+V Pilvu doplním zásoby a pokračuji dál po břehu do Bašnikova dalších asi padesát kilometrů. Překročila jsem padesátou rovnoběžku a ocitla jsem se na bývalém japonském území. Je tu pusto prázdno, jen na břehu se povalují střípky japonské keramiky. Z rozbitých talířků, konviček a piálek skládám do dlaně mozaiku doby, kdy Sachalin byl ještě zemí vycházejícího slunce. Bývalá fabrika a elektrárna na břehu se hroutí, uhelné šachty zarostly houštím. Vyprávěli mi, že v zemi je možné najít zlaté nugety a samurajské meče, které ukryli Japonci, když odtud po prohrané válce narychlo utíkali.
+
+Tuleni se povalují na břehu, nejsou zvyklí, že by je tu kdo rušil. Před soumrakem hledám skrýš před medvědem. A hle, vyloupla se krásná chaloupka a ke všemu se kouří z komína. Dva rybáři třeští oči, kde se tady bere ženská. Zvou mě dál a na stůl staví mísu s krevetami. Sedíme tu při svíčce a posloucháme, jak škrábe myš. Myš lepší než medvěd. Povídalo by se, povídalo, jenže hoši pijí čím dál víc šachťorské vodky a v konverzaci se začínají trochu ztrácet. Ráno mě svezou do vesnice, pěšky by to byly minimálně čtyři hodiny, lodí sotva tři čtvrtě.
+
+Stop v Bašnikovu je mizérie největší. Moknu pod mostem, a nikdo nestaví, zejména protože vůbec nikdo nikam nejede. Až se mě zželelo dobrým lidem, co se vraceli z hub. Jsem jakási zdrchaná a postaví mě na nohy až čaj a višňový kompot. Bábuška Zina mi půjčí svůj fialový župan, děduška, co kdysi v Mandžurii bojoval s Japonci, nám roztopí baňu. Bábuška mi vydrbe záda namydlenou žínkou a stěžuje si na své opuchlé bolavé nohy. Má to z práce na šachtě, kdy každý den stála u pásu a přebírala uhlí, nádor v břiše nejspíš taky. Příbuzný Ljoša odkudsi vyštrachal československou socialistickou dvoukorunu a přinesl maskáčovou uniformu. Trvá na tom, abych si oba „padárky“ nechala. Obhlédl totiž mé oblečky pověšené na šňůře a naznal, že takhle orvaná chodit nemůžu. Dá mi práci, abych mu to rozmluvila a vysvětlila, že chci vypadat co nejhůř.
+
+Druhý den jsem se přeci jen dočkala nějakého odvozu do Uglegorsku. Projíždím zoufalé vesnice, z poloviny vybydlené. Všechny uhelné doly pozavírali. Vesnice Naděždnaja by se klidně mohla přejmenovat na Beznaděždnou. Je syro a nevlídno. Kdosi mě u cesty ohodil blátem. Léto na Sachalinu končí, i můj čas se nachýlil. Zjistím, kdy mi jede příští trajekt a ze známosti seženu lístek i s protekčním místem v kajutě. Odplouvám zpátky na pevninu s rancem pirožků od jedné dobré duše a se zamotanou hlavou z výletu na konec světa.
+
+
+![](/img/articles/sachalin/sach4.jpg)

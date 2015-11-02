@@ -1,13 +1,13 @@
 {
   "articles": [
     {
-      "title": "hello world",
-      "text": "blha blah blah",
+      "title": "Černáduše Sachalinu",
+      "text": "Zmar, beznaděj, prázdnota... našlo by se mnoho slov, kterými lze popsat život na Sachalinu. Nic ale není tak černé, jak se zdá. I tady se lidé nad stakanem vodky a upytlačeným lososem dokážou smát dlouho do noci.",
       "path": "article1.md"
     },
     {
-      "title": "hello world1",
-      "text": "some **more** info lol\n* sdfsd\n* fsd\nfd\nsf",
+      "title": "Stopem na dálný východ",
+      "text": "",
       "path": "article2.md"
     }
   ]
