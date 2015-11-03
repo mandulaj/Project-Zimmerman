@@ -2,7 +2,7 @@
 function endM() {
   //Function handler to end the video
   //intitialCss(2);
-  $("#videopg").fadeOut("fast");
+  $("#videopg").fadeOut("medium");
 
 }
 
@@ -63,8 +63,9 @@ $(document).ready(function($) {
       //intitialCss(1);
       $("#videopg").css("display", "block"); //<--- visible
       var myVideo = document.getElementById("video");
-      myVideo.addEventListener('ended', endM, false);
+      //myVideo.addEventListener('ended', endM, false);
       myVideo.play();
+      setTimeout(endM, 10000);
     }
   }
 
