@@ -27,6 +27,42 @@
     return articles;
   }
 
+  function colorDecode(color) {
+    if (/^#/.test(color)) {
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      color = color.replace(shorthandRegex, function(m, r, g, b) {
+          return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+      return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+      } : null;
+    } else {
+      var colorArray = color.replace(/rgba?\(/,"").replace(")","").split(",");
+      return {
+        r: parseInt(colorArray[0]),
+        g: parseInt(colorArray[1]),
+        b: parseInt(colorArray[2]),
+      };
+    }
+  }
+
+  function textContrast(bgColor) {
+    // var r = bgColor.r * 255,
+    //     g = bgColor.g * 255,
+    //     b = bgColor.b * 255;
+    // var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    // return (yiq >= 128) ? '#333' : '#fff';
+
+
+
+    var luma =  (0.2126 * bgColor.r) + (0.7152 * bgColor.g) + (0.0722 * bgColor.b); // SMPTE C, Rec. 709 weightings
+    return (luma >= 165) ? '#333' : '#fff';
+  }
+
   // API key for data from Google (may be depreciated)
   var DATA_KEY_COMING_UP = "13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8";
 
@@ -302,11 +338,18 @@
   GUI.prototype.drawArticles = function(articles){
     var html = "<div class='row'>";
     var i = 0;
+    var style = "";
     articles.forEach(function(article){
       if (i !== 0 && i%2 === 0) {
         html += "</div><div class='row'>";
       }
-      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><p>" + article.text + "<p></div></div>";
+      if (typeof article.bg_color !== "undefined") {
+        var textColor = textContrast(colorDecode(article.bg_color));
+        style = "style='background: " + article.bg_color + "; color: " + textColor + ";'";
+      } else {
+        style = "";
+      }
+      html += "<div class='col-md-6'><div class='article' " + style + "><h3>" + article.title + "</h3><p>" + article.text + "<p></div></div>";
       i++;
     });
     html += "</div>";
@@ -318,7 +361,10 @@
     $(".article-belt").addClass("slide");
     $("#Clanky").addClass("opened");
     var article = this.app.articles[artId];
+    var textColor = textContrast(colorDecode(article.bg_color));
+    $("#Clanky").css("color", textColor);
     this.app.getFullArticle(article.path, function(htmltext){
+      $("#Clanky").css("background", article.bg_color);
       $(".article-open").removeClass("loading");
       $(".article-open").html("<h3>" + article.title + "</h3><p>" + htmltext + "<p>");
     });
@@ -330,6 +376,7 @@
     // wait until the section closes
     setTimeout(function(){
       $(".article-open").addClass("loading");
+      $("#Clanky").css("background","");
       $(".article-open").html("<div class='article-loader loader-inner line-scale'><div></div><div></div><div></div><div></div><div></div></div>");
     },300);
 
@@ -359,7 +406,7 @@
     this.handler = new EventHandler(this);
     this.gui = new GUI(this);
     this.getArticleList();
-    
+
     var data = [
       //{name: "Praha",when: "2.3.2000", where: "Tu", what: "asdf", description: "cesta tam a sem"}
     ];
