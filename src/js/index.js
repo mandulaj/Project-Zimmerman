@@ -16,11 +16,11 @@
   // }
   function parseDate(input) {
     var parts = input.split(".");
-    return new Date(parts[2],parts[1]-1,parts[0]);
+    return new Date(parts[2], parts[1] - 1, parts[0]);
   }
 
   function parseArticles(articles) {
-    for(var i = 0; i < articles.length; i++) {
+    for (var i = 0; i < articles.length; i++) {
       articles[i].text = md.toHTML(articles[i].text);
       // articles[i].date = parseDate(articles[i].date).toLocaleDateString();
     }
@@ -31,17 +31,17 @@
     if (/^#/.test(color)) {
       var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
       color = color.replace(shorthandRegex, function(m, r, g, b) {
-          return r + r + g + g + b + b;
+        return r + r + g + g + b + b;
       });
 
       var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
       return result ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
       } : null;
     } else {
-      var colorArray = color.replace(/rgba?\(/,"").replace(")","").split(",");
+      var colorArray = color.replace(/rgba?\(/, "").replace(")", "").split(",");
       return {
         r: parseInt(colorArray[0]),
         g: parseInt(colorArray[1]),
@@ -59,7 +59,7 @@
 
 
 
-    var luma =  (0.2126 * bgColor.r) + (0.7152 * bgColor.g) + (0.0722 * bgColor.b); // SMPTE C, Rec. 709 weightings
+    var luma = (0.2126 * bgColor.r) + (0.7152 * bgColor.g) + (0.0722 * bgColor.b); // SMPTE C, Rec. 709 weightings
     return (luma >= 165) ? '#333' : '#fff';
   }
 
@@ -89,10 +89,10 @@
       autoPlay: 7000,
       stopOnHover: true,
       items: 3,
-      itemsDesktop : [1199,2],
-      itemsDesktopSmall : [979,1],
-      itemsTablet: [600,1], //2 items between 600 and 0
-      itemsMobile : false
+      itemsDesktop: [1199, 2],
+      itemsDesktopSmall: [979, 1],
+      itemsTablet: [600, 1], //2 items between 600 and 0
+      itemsMobile: false
     });
 
 
@@ -257,7 +257,7 @@
     });
 
     //Article back button
-    $(".article-back-btn").click(function(){
+    $(".article-back-btn").click(function() {
       self.app.gui.closeArticle();
     });
     //Opening an article
@@ -305,7 +305,7 @@
   };
   EventHandler.prototype.registerArticles = function() {
     var self = this;
-    $(".article").click(function(){
+    $(".article").click(function() {
       self.scrollToElement("#Clanky");
       self.app.gui.openArticle($(this).index(".article"));
     });
@@ -334,12 +334,12 @@
     }
   };
 
-  GUI.prototype.drawArticles = function(articles){
+  GUI.prototype.drawArticles = function(articles) {
     var html = "<div class='row'>";
     var i = 0;
     var style = "";
-    articles.forEach(function(article){
-      if (i !== 0 && i%2 === 0) {
+    articles.forEach(function(article) {
+      if (i !== 0 && i % 2 === 0) {
         html += "</div><div class='row'>";
       }
       if (typeof article.bg_color !== "undefined") {
@@ -362,7 +362,7 @@
     var article = this.app.articles[artId];
     var textColor = textContrast(colorDecode(article.bg_color));
     $("#Clanky").css("color", textColor);
-    this.app.getFullArticle(article.path, function(htmltext){
+    this.app.getFullArticle(article.path, function(htmltext) {
       $("#Clanky").css("background", article.bg_color);
       $(".article-open").removeClass("loading");
       $(".article-open").html("<h3>" + article.title + "</h3><p>" + htmltext + "<p>");
@@ -373,15 +373,15 @@
     $(".article-belt").removeClass("slide");
     $("#Clanky").removeClass("opened");
     // wait until the section closes
-    setTimeout(function(){
+    setTimeout(function() {
       $(".article-open").addClass("loading");
-      $("#Clanky").css("background","");
+      $("#Clanky").css("background", "");
       $(".article-open").html("<div class='article-loader loader-inner line-scale'><div></div><div></div><div></div><div></div><div></div></div>");
-    },300);
+    }, 300);
 
   };
 
-  GUI.prototype.showNav = function(){
+  GUI.prototype.showNav = function() {
     var button = $(".nav-toggle");
     var menu = $("nav");
     menu.addClass("showNav");
@@ -389,14 +389,14 @@
     button.addClass("dropped");
   };
 
-  GUI.prototype.hideNav = function(){
+  GUI.prototype.hideNav = function() {
     var button = $(".nav-toggle");
     var menu = $("nav");
     menu.removeClass("showNav");
     button.removeClass("dropped");
-    setTimeout(function(){
+    setTimeout(function() {
       menu.addClass("purge");
-    },200);
+    }, 200);
   };
 
   // Main App
@@ -406,34 +406,33 @@
     this.gui = new GUI(this);
     this.getArticleList();
 
-    var data = [
-      {
-        name: "Stopem do Tibetu, Horování 2015",
-        when: "28.11.2015",
-        where: "Šumperk, Dům kultury",
-        description: "Přednáška o velkém i malém Tibetu, který Katka projela stopem od západního království Guge až po východní provincii Kham. Dozvíte se nejen o autonomní oblasti, ale i o tom, kde hledat Tibet jinde než přímo v Tibetu."}
-    ];
+    var data = [{
+      name: "Stopem do Tibetu, Horování 2015",
+      when: "28.11.2015",
+      where: "Šumperk, Dům kultury",
+      description: "Přednáška o velkém i malém Tibetu, který Katka projela stopem od západního království Guge až po východní provincii Kham. Dozvíte se nejen o autonomní oblasti, ale i o tom, kde hledat Tibet jinde než přímo v Tibetu."
+    }];
     self.gui.drawComingUp(data);
   }
-  App.prototype.getArticleList = function(){
+  App.prototype.getArticleList = function() {
     var self = this;
     $.ajax("/data/articles.json", {
       dataType: "json",
       cache: false,
       type: "GET"
-    }).done(function(data){
+    }).done(function(data) {
       self.articles = parseArticles(data.articles);
       self.gui.drawArticles(self.articles);
     });
   };
 
-  App.prototype.getFullArticle = function(path, cb){
+  App.prototype.getFullArticle = function(path, cb) {
     var self = this;
-    $.ajax("/data/articles/"+path, {
+    $.ajax("/data/articles/" + path, {
       dataType: "text",
       cache: false,
       type: "GET"
-    }).done(function(data){
+    }).done(function(data) {
       console.log(data);
       cb(md.toHTML(data));
     });
@@ -457,4 +456,4 @@
   $(document).ready(function() {
     var app = new App();
   });
-})($, null,markdown);
+})($, null, markdown);
