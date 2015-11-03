@@ -52,6 +52,6 @@
 
   $(document).ready(function() {
     var app = new App();
-    //app.start();
+    app.start();
   });
 })($);
