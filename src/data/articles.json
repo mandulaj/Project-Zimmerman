@@ -2,13 +2,18 @@
   "articles": [
     {
       "title": "Černáduše Sachalinu",
-      "text": "Zmar, beznaděj, prázdnota... našlo by se mnoho slov, kterými lze popsat život na Sachalinu. Nic ale není tak černé, jak se zdá. I tady se lidé nad stakanem vodky a upytlačeným lososem dokážou smát dlouho do noci.",
+      "text": "Zmar, beznaděj, prázdnota... našlo by se mnoho slov, kterými lze popsat život na Sachalinu. Nic ale není tak černé, jak se zdá. I tady se lidé nad stakanem vodky a upytlačeným lososem dokážou smát dlouho do noci...",
       "path": "article1.md"
     },
     {
       "title": "Stopem na Dálný východ",
-      "text": "Jak se nejlevněji dostat z Třebíče do Vladivostoku? Samozřejmě stopem. Volím nejkratší trasu, kterou létají letadla, a doufám, že cestu přežiji. Ve Varšavě poznávám lavičku, kde jsem kdysi probděla noc. V Rize posouvám hodinky poprvé o hodinu napřed. Když se ptám, kudy do Moskvy, kdosi mávne ledabyle rukou směrem k východu. Kostelíky pomalu mění svůj severský charakter a začínají se objevovat zlaté báně.",
+      "text": "Jak se nejlevněji dostat z Třebíče do Vladivostoku? Samozřejmě stopem. Volím nejkratší trasu, kterou létají letadla, a doufám, že cestu přežiji. Ve Varšavě poznávám lavičku, kde jsem kdysi probděla noc. V Rize posouvám hodinky poprvé o hodinu napřed. Když se ptám, kudy do Moskvy, kdosi mávne ledabyle rukou směrem k východu. Kostelíky pomalu mění svůj severský charakter a začínají se objevovat zlaté báně...",
       "path": "article2.md"
+    },
+    {
+      "title": "Stopem do Vladivostoku",
+      "text": "Stop do Vladislavi není zrovna výhra, když má člověk namířeno z Třebíče do Vladivostoku. Ale nějak se protluču. Volím nejkratší trasu, kterou lítají letadla, ale kdybych letěla, měla bych to příliš jednoduché. Ve Varšavě poznávám lavičku, kde jsem kdysi probděla noc. V Rize posouvám hodinky poprvé o hodinu napřed...",
+      "path": "article3.md"
     }
   ]
 }
