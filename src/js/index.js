@@ -320,13 +320,12 @@
   GUI.prototype.drawComingUp = function(data) {
     if (data.length > 0) {
       var ts = "<table class='table'>";
-      ts += "<thead><tr><th>Nazev</th><th>Kdy</th><th>Kde</th><th>Co</th><th>Popis</th></thead><tbody>";
+      ts += "<thead><tr><th>Nazev</th><th>Kdy</th><th>Kde</th><th>Co</th></thead><tbody>";
       data.forEach(function(data) {
         ts += "<tr>";
         ts += "<td>" + data.name + "</td>";
         ts += "<td>" + data.when + "</td>";
         ts += "<td>" + data.where + "</td>";
-        ts += "<td>" + data.what + "</td>";
         ts += "<td>" + data.description + "</td>";
         ts += "</tr>";
       });
@@ -408,7 +407,11 @@
     this.getArticleList();
 
     var data = [
-      //{name: "Praha",when: "2.3.2000", where: "Tu", what: "asdf", description: "cesta tam a sem"}
+      {
+        name: "Stopem do Tibetu, Horování 2015",
+        when: "28.11.2015",
+        where: "Šumperk, Dům kultury",
+        description: "Přednáška o velkém i malém Tibetu, který Katka projela stopem od západního království Guge až po východní provincii Kham. Dozvíte se nejen o autonomní oblasti, ale i o tom, kde hledat Tibet jinde než přímo v Tibetu."}
     ];
     self.gui.drawComingUp(data);
   }
