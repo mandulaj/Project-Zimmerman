@@ -376,6 +376,7 @@
     setTimeout(function() {
       $(".article-open").addClass("loading");
       $("#Clanky").css("background", "");
+      $("#Clanky").css("color", "");
       $(".article-open").html("<div class='article-loader loader-inner line-scale'><div></div><div></div><div></div><div></div><div></div></div>");
     }, 300);
 
