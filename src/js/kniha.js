@@ -33,13 +33,16 @@
     this.app = app;
   }
   GUI.prototype.playVideo = function() {
-    $("#videopg").css("display", "block");
     var myVideo = document.getElementById("video");
     myVideo.play();
   };
 
   GUI.prototype.hideVideo = function() {
-    $("#videopg").fadeOut("medium");
+    var videoElement = $("#videopg");
+    videoElement.addClass("fade");
+    setTimeout(function () {
+      videoElement.addClass("hidden");
+    },300);
   };
 
   function App() {
