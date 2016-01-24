@@ -191,6 +191,7 @@
 
     $('#contact-form > input').each(function() {
       if ($(this).attr("name") === "_gotcha") return;
+      if ($(this).attr("name") === "_next") return;
       /* Save original values */
       var originalValue = $(this).attr('value');
       /* Wrap text fields in div for flipping */
@@ -225,13 +226,11 @@
     var textareamsg = $('textarea').html();
     $('textarea').html("").val(textareamsg);
     $(document).on('focus', 'textarea', function(event) {
-      $(this).css('minHeight', '200px');
       if ($(this).val() === textareamsg) {
         $(this).val("");
       }
     });
     $(document).on('blur', 'textarea', function(event) {
-      $(this).css('minHeight', '');
       if ($(this).val() === "") {
         $(this).val(textareamsg);
       }
@@ -262,6 +261,10 @@
     });
     //Opening an article
 
+    $('.contact_submit').click(function(e){
+      e.preventDefault();
+      self.submitForm();
+    });
   }
 
   EventHandler.prototype.scrollToElement = function(id) {
@@ -295,11 +298,34 @@
 
   };
   EventHandler.prototype.submitForm = function(data) {
-    $.ajax("http://formspree.io/jakub.aludnam@gmail.com", {
-      cache: false,
-      data: data,
-      success: function(data) {
+    var self = this;
+    $(".contact-msg-row > div").alert('close');
+    var valuesToGet = {
+      "Jméno":"#contact-form input[name=name]",
+      "_replyto":"#contact-form input[name=_replyto]",
+      "Zpráva":"#contact-form textarea",
+      "_gotcha":"#contact-form input[name=_gotcha]"
+    };
+    var valuesData = {};
 
+    for (var name in valuesToGet) {
+      var val = $(valuesToGet[name]).val();
+      if ((name !== "_gotcha" && val === "") || (name === "Zpráva" && val === "Zpráva:")) {
+        self.app.gui.showSendError("missing value");
+        return;
+      }
+      valuesData[name] = val;
+    }
+
+    $.ajax("http://formspree.io/mandulova@gmail.com", {
+      cache: false,
+      data: valuesData,
+      dataType:"json",
+      method: "POST",
+      success: function(data) {
+        if(data.success == "email sent") {
+          self.app.gui.showThanks();
+        }
       }
     });
   };
@@ -400,6 +426,35 @@
     }, 200);
   };
 
+  GUI.prototype.resetForm = function() {
+    $('#contact-form > input').each(function() {
+      var thisObj = $(this);
+      if (thisObj.attr("name") === "_gotcha") return;
+      if (thisObj.attr("name") === "_next") return;
+      var value = thisObj.attr("value");
+      var val = thisObj.val("");
+      thisObj.next(".filed-value").html(val);
+    });
+    $('#contact-form textarea').val("Zpráva:");
+  };
+
+  GUI.prototype.showThanks = function() {
+    this.resetForm();
+    $(".contact-msg-row").html('<div class="alert alert-success alert-dimissible fade in"><button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4>Hurá!</h4><p>Vše se podařilo. Děkuji za vaši zprávu.</p></div>');
+    setTimeout(function () {
+      $(".contact-msg-row > div").alert('close');
+    },10000);
+  };
+
+  GUI.prototype.showSendError = function(msg) {
+    if(msg === "missing value") {
+      $(".contact-msg-row").html('<div class="alert alert-danger alert-dimissible fade in"><button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4>Ouha!</h4><p>Při odesílání se stala chyba. Prosím zkontrolujte zda máte vše vyplněno a zkuste to znovu.</p></div>');
+      setTimeout(function () {
+        $(".contact-msg-row > div").alert('close');
+      },10000);
+    }
+  };
+
   // Main App
   function App() {
     var self = this;
@@ -407,12 +462,7 @@
     this.gui = new GUI(this);
     this.getArticleList();
 
-    var data = [{
-      name: "Stopem do Tibetu, Horování 2015",
-      when: "28.11.2015",
-      where: "Šumperk, Dům kultury",
-      description: "Přednáška o velkém i malém Tibetu, který Katka projela stopem od západního království Guge až po východní provincii Kham. Dozvíte se nejen o autonomní oblasti, ale i o tom, kde hledat Tibet jinde než přímo v Tibetu."
-    }];
+    var data = [];
     self.gui.drawComingUp(data);
   }
   App.prototype.getArticleList = function() {

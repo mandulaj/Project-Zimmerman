@@ -185,9 +185,6 @@ block content
         .coming-up.col-md-8.col-md-offset-2.table-responsive
           p.blank
            | Prozatím nic
-      .row
-        .col-md-12
-          img(src="/img/HOROVANI_2015_plakat_red.jpg")
 
   //- Articles Section
   section.row#Clanky
@@ -225,13 +222,15 @@ block content
         h2 Kontakt
       .row
         .col-md-8.col-md-offset-2
-          form#contact-form(method="POST" action="//formspree.io/")
+          form#contact-form(method="POST")
             input(type="text" name="name" value="Jméno:")
             input(type="email" name="_replyto" value="Email:")
             textarea Zpráva:
             input(type="text" name="_gotcha" style="display:none")
-            button(type="submit") Odeslat
-
+            input(type="hidden" name="_next" value="/msg")
+            button(type="submit" class="btn btn-lg btn-primary contact_submit") Odeslat
+      .row.contact-msg-row
+        
 
 block scripts
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
