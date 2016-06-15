@@ -16,19 +16,20 @@
     "url": "https://github.com/zpiman/Project-Zimmerman/issues"
   },
   "homepage": "http://mandulova.cz",
-  "devDependencies": {
-    "gulp": "^3.9.0",
+  "dependencies": {
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-changed": "^1.3.0",
-    "gulp-connect": "^2.2.0",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-connect": "^4.1.0",
+    "gulp-if": "^2.0.1",
     "gulp-image-optimization": "^0.1.3",
     "gulp-jade": "^1.1.0",
-    "gulp-jshint": "^1.12.0",
-    "gulp-less": "^3.0.3",
-    "gulp-mini-css": "^0.0.3",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-plumber": "^1.0.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.4.2"
+    "gulp-uglify": "^1.5.3",
+    "jshint": "^2.9.2"
   }
 }
