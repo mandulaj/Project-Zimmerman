@@ -48,7 +48,7 @@ block content
   section.row#O-mne
     .container
       .row
-        h2 O mně
+        h2.title O mně
       .row
         
         .col-md-4
@@ -98,24 +98,25 @@ block content
 
   //- Gallery section
   section.row#Galerie
-    h2 Galerie
+    h2.title Galerie
     .owl-carousel#gallery-carousel
 
   //- Future events section
   section.row#Chystane-akce
     .container
       .row
-        h2 Chystané akce
+        h2.title Chystané akce
       .row
-        .coming-up.col-md-8.col-md-offset-2.table-responsive
-          p.blank
-           | Prozatím nic
+        include ./akce.jade
+        //.coming-up.col-md-8.col-md-offset-2.table-responsive
+        //  p.blank
+        //   | Prozatím nic
 
   //- Articles Section
   section.row#Clanky
     .container
       .row
-        h2 Články
+        h2.title Články
     .article-belt
       .thumb-wrap
         .container.articles
@@ -136,7 +137,7 @@ block content
   section.row#Blog
     .container
       .row
-        h2 Blog
+        h2.title Blog
       .row
         p Under Construction
 
@@ -144,7 +145,7 @@ block content
   section.row#Kontakt
     .container
       .row
-        h2 Kontakt
+        h2.title Kontakt
       .row
         .col-md-8.col-md-offset-2
           form#contact-form(method="POST")

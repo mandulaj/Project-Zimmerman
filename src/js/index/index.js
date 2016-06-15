@@ -21,8 +21,6 @@
     return articles;
   }
 
-
-
   // Main App
   function App() {
     var self = this;
