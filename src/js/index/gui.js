@@ -1,7 +1,7 @@
 // GUI operations
 
 var GUI_module = (function($) {
-
+  'use strict';
   function textContrast(bgColor) {
 
     var luma = (0.2126 * bgColor.r) + (0.7152 * bgColor.g) + (0.0722 * bgColor.b); // SMPTE C, Rec. 709 weightings

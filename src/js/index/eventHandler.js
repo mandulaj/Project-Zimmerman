@@ -1,4 +1,5 @@
 var EventHandler_module = (function($) {
+  'use strict';
   // Event setup, handler
   function EventHandler(app) {
     this.app = app;

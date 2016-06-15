@@ -1,7 +1,5 @@
-// Book
-(function($) {
+var EventHandler_module = (function($){
   'use strict';
-
   function checkMobile() {
     if (navigator.userAgent.match(/Android/i) ||
       navigator.userAgent.match(/webOS/i) ||
@@ -16,6 +14,7 @@
     }
   }
 
+
   function EventHandler(app) {
     this.app = app;
   }
@@ -28,33 +27,5 @@
       setTimeout(this.app.gui.hideVideo, 10000);
     }
   };
-
-  function GUI(app) {
-    this.app = app;
-  }
-  GUI.prototype.playVideo = function() {
-    var myVideo = document.getElementById("video");
-    myVideo.play();
-  };
-
-  GUI.prototype.hideVideo = function() {
-    var videoElement = $("#videopg");
-    videoElement.addClass("fade");
-    setTimeout(function () {
-      videoElement.addClass("hidden");
-    },300);
-  };
-
-  function App() {
-    this.gui = new GUI(this);
-    this.handler = new EventHandler(this);
-  }
-  App.prototype.start = function() {
-    this.handler.start();
-  };
-
-  $(document).ready(function() {
-    var app = new App();
-    app.start();
-  });
+  return EventHandler;
 })($);
