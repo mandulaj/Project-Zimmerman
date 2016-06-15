@@ -48,6 +48,17 @@
       console.log(err);
     });
 
+    var threads = ["1234", "5678", "9012"];
+    var coose = Math.floor(Math.random()*3);
+    console.log(coose)
+    var thread = threads[coose]
+
+
+    var disqus = this.makeComments(thread, thread);
+    console.log(disqus)
+    $("#disqus_thread ").html(disqus);
+
+
   }
 
   App.prototype.getArticleList = function() {
@@ -56,6 +67,16 @@
 
   App.prototype.getPhotoList = function() {
     return this.getJSON("/data/photos.json");
+  };
+
+  App.prototype.makeComments= function(id, title){
+    var url = "http://mandulova.cz";
+    return "<script> var disqus_config = function () {this.page.url = '"+ url +
+      "';this.page.identifier = '"+ id +
+      "';this.page.title='"+title+
+      "'};(function(){var d=document,s=d.createElement('script');s.src='//mandulova.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head||d.body).appendChild(s);})();</script>"+
+      "<noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a></noscript>";
+
   };
 
   App.prototype.getJSON = function(url){
