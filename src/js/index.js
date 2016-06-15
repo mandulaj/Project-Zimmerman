@@ -84,24 +84,36 @@
     });
 
     // Gallery
-    $("#gallery-carousel").owlCarousel({
-
+    var owl = $("#gallery-carousel");
+    owl.owlCarousel({
+      stagePadding: 50,
       margin: 10,
       autoplay:true,
-      autoplayTimeout:1000,
+      autoplayTimeout:7000,
       autoplayHoverPause:true,
       loop: true,
+      // TODO: fix lazyLoad
+      //lazyLoad: true,
       responsive:{
         0:{
             items:1
         },
-        600:{
+        700:{
             items:2
         },
-        1000:{
+        1600:{
             items:3
         }
       }
+    });
+    owl.on('mousewheel', '.owl-stage', function (e) {
+      // TODO: fix originalEvetn - should not be needed
+      if (e.originalEvent.deltaY>0) {
+        owl.trigger('next.owl');
+      } else {
+        owl.trigger('prev.owl');
+      }
+      e.preventDefault();
     });
 
 
