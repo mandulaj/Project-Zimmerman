@@ -3,6 +3,9 @@ var EventHandler_module = (function($) {
   function EventHandler(app) {
     var self = this;
     this.app = app;
+  }
+
+  EventHandler.prototype.init = function() {
 
     // Mobile nav-bar manipulation
     this.navbarOpen = false;
@@ -219,7 +222,7 @@ var EventHandler_module = (function($) {
       e.preventDefault();
       self.submitForm();
     });
-  }
+  };
 
   EventHandler.prototype.scrollToElement = function(id) {
     var offset = parseInt($(".headspacer").css("margin-bottom").replace(/[A-Za-z]/, "")) - 150;

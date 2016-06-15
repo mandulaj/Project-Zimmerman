@@ -27,24 +27,44 @@
   function App() {
     var self = this;
     this.gui = new GUI(this);
-    this.getArticleList();
+    this.handler = new EventHandler(self);
 
-    var data = [];
-    self.gui.drawComingUp(data);
-    self.gui.drawGalleryCarousel();
+    var requestPromises = [];
+    requestPromises.push(this.getArticleList());
+    requestPromises.push(this.getPhotoList());
 
+    Promise.all(requestPromises).then(function(results){
+      var articlesData = results[0];
+      self.articles = parseArticles(articlesData.articles);
+      self.gui.drawArticles(self.articles);
 
-    this.handler = new EventHandler(this);
+      var photoData = results[1];
+      self.gui.drawGalleryCarousel(photoData);
+
+      var data = [];
+      self.gui.drawComingUp(data);
+
+      self.handler.init();
+    }, function(err){
+      // Do more error checking...
+      console.log(err);
+    });
+
   }
+
   App.prototype.getArticleList = function() {
-    var self = this;
-    $.ajax("/data/articles.json", {
+    return this.getJSON("/data/articles.json");
+  };
+
+  App.prototype.getPhotoList = function() {
+    return this.getJSON("/data/photos.json");
+  };
+
+  App.prototype.getJSON = function(url){
+    return $.ajax(url, {
       dataType: "json",
       cache: false,
       type: "GET"
-    }).done(function(data) {
-      self.articles = parseArticles(data.articles);
-      self.gui.drawArticles(self.articles);
     });
   };
 
