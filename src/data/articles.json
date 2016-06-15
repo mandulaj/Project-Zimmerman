@@ -1,0 +1,28 @@
+{
+  "articles": [
+    {
+      "title": "Černá duše Sachalinu",
+      "text": "Zmar, beznaděj, prázdnota... našlo by se mnoho slov, kterými lze popsat život na Sachalinu. Nic ale není tak černé, jak se zdá. I tady se lidé nad stakanem vodky a upytlačeným lososem dokážou smát dlouho do noci...\n![](/img/articles/sachalin/sach2.jpg)",
+      "path": "article1.md",
+      "bg_color": "rgb(102, 176, 211)"
+    },
+    {
+      "title": "Stopem na Dálný východ",
+      "text": "Jak se nejlevněji dostat z Třebíče do Vladivostoku? Samozřejmě stopem. Volím nejkratší trasu, kterou létají letadla, a doufám, že cestu přežiji...\n![](/img/articles/vychod/vychod1.jpg)",
+      "path": "article2.md",
+      "bg_color": "rgb(79, 119, 179)"
+    },
+    {
+      "title": "Stopem do Vladivostoku",
+      "text": "Stop do Vladislavi není zrovna výhra, když má člověk namířeno z Třebíče do Vladivostoku. Ale nějak se protluču. Volím nejkratší trasu, kterou lítají letadla, ale kdybych letěla, měla bych to příliš jednoduché. Ve Varšavě poznávám lavičku, kde jsem kdysi probděla noc. V Rize posouvám hodinky poprvé o hodinu napřed...",
+      "path": "article3.md",
+      "bg_color": "rgb(106, 133, 172)"
+    },
+    {
+      "title": "Mantry v červeném",
+      "text": "Co na tom, že se hora Genyen dnes nachází v čínské provincii S-čchuan. Podle staré mapy jsme tu správně v odbojné provincii Kham ve východním Tibetu. A vyrážíme k hoře, na kterou je zakázáno i jen sáhnout...\n![Cina](/img/articles/cina/cina1.jpg)",
+      "path": "article4.md",
+      "bg_color": "rgb(106, 172, 169)"
+    }
+  ]
+}

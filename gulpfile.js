@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
   less = require('gulp-less'),
-  minify = require("gulp-mini-css"),
+  minify = require("gulp-clean-css"),
   autoprfixer = require('gulp-autoprefixer'),
   jshint = require('gulp-jshint'),
   jsuglify = require('gulp-uglify'),
@@ -10,6 +10,7 @@ var gulp = require('gulp'),
   jade = require('gulp-jade'),
   imageop = require('gulp-image-optimization'),
   changed = require('gulp-changed'),
+  gulpIf = require('gulp-if'),
   exec = require('child_process').exec;
 
 
@@ -18,18 +19,25 @@ var paths = {
     js: "src/js/**/*js",
     less: "src/less/**/*.less",
     jade: "src/jade/**/*.jade",
-    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg', 'src/img/**/*.*']
+    img: ['src/img/**/*.png', 'src/img/**/*.jpg', 'src/img/**/*.gif', 'src/img/**/*.jpeg', 'src/img/**/*.*'],
+    articles: "src/data/**"
   },
   output: {
     js: "build/js",
     css: "build/css",
     img: "build/img",
+    articles: "build/data",
     root: "build"
   }
 };
 
-gulp.task('deploy', ['jade', 'less', 'js', 'image'], function(cb) {
-  exec('git archive --format=tar origin/gh-pages data | tar -xv -C build; git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force; git reset HEAD^;git reset build', function(err, stdout, stderr) {
+function isDeploy() {
+  return (process.argv.indexOf('deploy') !== -1);
+}
+
+gulp.task('deploy', ['jade', 'less', 'js', 'image', 'articles'], function(cb) {
+  //TODO: make sure to merge any articles from the github repository into here
+  exec('git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force; git reset HEAD^;git reset build', function(err, stdout, stderr) {
     if (err) return cb(err); // return error
     console.log(stdout);
     console.log(stderr);
@@ -50,9 +58,9 @@ gulp.task("less", function() {
     .pipe(plumber())
     .pipe(less())
     .pipe(autoprfixer())
-    .pipe(gulp.dest(paths.output.css))
-    .pipe(minify({
-      ext: '.min.css'
+    .pipe(gulpIf(isDeploy(),minify()))
+    .pipe(rename({
+      extname: ".css"
     }))
     .pipe(gulp.dest(paths.output.css))
     .pipe(connect.reload());
@@ -72,13 +80,9 @@ gulp.task("js", function() {
   return gulp.src(paths.input.js)
     .pipe(plumber())
     .pipe(jshint())
+    .pipe(gulpIf(isDeploy(),jsuglify()))
     .pipe(rename({
       extname: ".js"
-    }))
-    .pipe(gulp.dest(paths.output.js))
-    .pipe(jsuglify())
-    .pipe(rename({
-      extname: ".min.js"
     }))
     .pipe(gulp.dest(paths.output.js))
     .pipe(connect.reload());
@@ -96,11 +100,17 @@ gulp.task("image", function() {
     .pipe(gulp.dest(paths.output.img));
 });
 
+gulp.task("articles", function(){
+  return gulp.src(paths.input.articles)
+    .pipe(gulp.dest(paths.output.articles));
+});
+
 gulp.task("watch", function() {
   gulp.watch(paths.input.less, ['less']);
   gulp.watch(paths.input.js, ['js']);
   gulp.watch(paths.input.jade, ['jade']);
   gulp.watch(paths.input.img, ['image']);
+  gulp.watch(paths.input.articles, ['articles']);
 });
 
-gulp.task('default', ["connect", "less", "jade", "js", "image", "watch"]);
+gulp.task('default', ["connect", "less", "jade", "js", "image","articles", "watch"]);

@@ -8,17 +8,59 @@
     }, 100);
   }
 
-  function truncStr(str, n, useWordBoundary){
-         var toLong = str.length>n,
-             s_ = toLong ? str.substr(0,n-1) : str;
-         s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
-         return  toLong ? s_ + '&hellip;' : s_;
+  // function truncStr(str, n, useWordBoundary){
+  //        var toLong = str.length>n,
+  //            s_ = toLong ? str.substr(0,n-1) : str;
+  //        s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+  //        return  toLong ? s_ + '&hellip;' : s_;
+  // }
+  function parseDate(input) {
+    var parts = input.split(".");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
   }
+
   function parseArticles(articles) {
-    for(var i = 0; i < articles.length; i++) {
+    for (var i = 0; i < articles.length; i++) {
       articles[i].text = md.toHTML(articles[i].text);
+      // articles[i].date = parseDate(articles[i].date).toLocaleDateString();
     }
     return articles;
+  }
+
+  function colorDecode(color) {
+    if (/^#/.test(color)) {
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      color = color.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    } else {
+      var colorArray = color.replace(/rgba?\(/, "").replace(")", "").split(",");
+      return {
+        r: parseInt(colorArray[0]),
+        g: parseInt(colorArray[1]),
+        b: parseInt(colorArray[2]),
+      };
+    }
+  }
+
+  function textContrast(bgColor) {
+    // var r = bgColor.r * 255,
+    //     g = bgColor.g * 255,
+    //     b = bgColor.b * 255;
+    // var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    // return (yiq >= 128) ? '#333' : '#fff';
+
+
+
+    var luma = (0.2126 * bgColor.r) + (0.7152 * bgColor.g) + (0.0722 * bgColor.b); // SMPTE C, Rec. 709 weightings
+    return (luma >= 165) ? '#333' : '#fff';
   }
 
   // API key for data from Google (may be depreciated)
@@ -36,7 +78,6 @@
 
     $('nav ul li a').click(function(event) {
       event.preventDefault();
-      if (!self.navbarOpen) return;
       var target = $(this).attr('href');
       history.pushState(null, null, target);
       self.scrollToElement(target);
@@ -159,6 +200,7 @@
 
     $('#contact-form > input').each(function() {
       if ($(this).attr("name") === "_gotcha") return;
+      if ($(this).attr("name") === "_next") return;
       /* Save original values */
       var originalValue = $(this).attr('value');
       /* Wrap text fields in div for flipping */
@@ -193,13 +235,11 @@
     var textareamsg = $('textarea').html();
     $('textarea').html("").val(textareamsg);
     $(document).on('focus', 'textarea', function(event) {
-      $(this).css('minHeight', '200px');
       if ($(this).val() === textareamsg) {
         $(this).val("");
       }
     });
     $(document).on('blur', 'textarea', function(event) {
-      $(this).css('minHeight', '');
       if ($(this).val() === "") {
         $(this).val(textareamsg);
       }
@@ -225,11 +265,15 @@
     });
 
     //Article back button
-    $(".article-back-btn").click(function(){
+    $(".article-back-btn").click(function() {
       self.app.gui.closeArticle();
     });
     //Opening an article
 
+    $('.contact_submit').click(function(e){
+      e.preventDefault();
+      self.submitForm();
+    });
   }
 
   EventHandler.prototype.scrollToElement = function(id) {
@@ -241,53 +285,66 @@
       },
       1000);
   };
-
   EventHandler.prototype.toggleNav = function() {
-    var button = $(".nav-toggle");
-    var menu = $("nav");
+
     if (this.navbarOpen) {
       this.navbarOpen = false;
-      menu.removeClass("showNav");
-      button.removeClass("dropped");
+      this.app.gui.hideNav();
+
     } else {
       this.navbarOpen = true;
-      menu.addClass("showNav");
-      button.addClass("dropped");
+      this.app.gui.showNav();
     }
   };
   EventHandler.prototype.hiddeNav = function(e) {
     var button = $(".nav-toggle");
-    var menu = $("nav");
     var target = $(e.target);
     if (e.target == button.get(0) || button.find(target).length !== 0) {
       return;
     }
     this.navbarOpen = false;
-    menu.removeClass("showNav");
-    button.removeClass("dropped");
+    this.app.gui.hideNav();
 
   };
-
   EventHandler.prototype.submitForm = function(data) {
-    $.ajax("http://formspree.io/jakub.aludnam@gmail.com", {
-      cache: false,
-      data: data,
-      success: function(data) {
+    var self = this;
+    $(".contact-msg-row > div").alert('close');
+    var valuesToGet = {
+      "Jméno":"#contact-form input[name=name]",
+      "_replyto":"#contact-form input[name=_replyto]",
+      "Zpráva":"#contact-form textarea",
+      "_gotcha":"#contact-form input[name=_gotcha]"
+    };
+    var valuesData = {};
 
+    for (var name in valuesToGet) {
+      var val = $(valuesToGet[name]).val();
+      if ((name !== "_gotcha" && val === "") || (name === "Zpráva" && val === "Zpráva:")) {
+        self.app.gui.showSendError("missing value");
+        return;
+      }
+      valuesData[name] = val;
+    }
+
+    $.ajax("http://formspree.io/mandulova@gmail.com", {
+      cache: false,
+      data: valuesData,
+      dataType:"json",
+      method: "POST",
+      success: function(data) {
+        if(data.success == "email sent") {
+          self.app.gui.showThanks();
+        }
       }
     });
   };
-
   EventHandler.prototype.registerArticles = function() {
     var self = this;
-    $(".article").click(function(){
+    $(".article").click(function() {
       self.scrollToElement("#Clanky");
       self.app.gui.openArticle($(this).index(".article"));
     });
   };
-
-
-
 
   // GUI operations
   function GUI(app) {
@@ -298,13 +355,12 @@
   GUI.prototype.drawComingUp = function(data) {
     if (data.length > 0) {
       var ts = "<table class='table'>";
-      ts += "<thead><tr><th>Nazev</th><th>Kdy</th><th>Kde</th><th>Co</th><th>Popis</th></thead><tbody>";
+      ts += "<thead><tr><th>Nazev</th><th>Kdy</th><th>Kde</th><th>Co</th></thead><tbody>";
       data.forEach(function(data) {
         ts += "<tr>";
         ts += "<td>" + data.name + "</td>";
         ts += "<td>" + data.when + "</td>";
         ts += "<td>" + data.where + "</td>";
-        ts += "<td>" + data.what + "</td>";
         ts += "<td>" + data.description + "</td>";
         ts += "</tr>";
       });
@@ -313,14 +369,21 @@
     }
   };
 
-  GUI.prototype.drawArticles = function(articles){
+  GUI.prototype.drawArticles = function(articles) {
     var html = "<div class='row'>";
     var i = 0;
-    articles.forEach(function(article){
-      if (i !== 0 && i%2 === 0) {
+    var style = "";
+    articles.forEach(function(article) {
+      if (i !== 0 && i % 2 === 0) {
         html += "</div><div class='row'>";
       }
-      html += "<div class='col-md-6'><div class='article'><h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + truncStr(article.text, 200, true) + "<p></div></div>";
+      if (typeof article.bg_color !== "undefined") {
+        var textColor = textContrast(colorDecode(article.bg_color));
+        style = "style='background: " + article.bg_color + "; color: " + textColor + ";'";
+      } else {
+        style = "";
+      }
+      html += "<div class='col-md-6'><div class='article' " + style + "><h3>" + article.title + "</h3><p>" + article.text + "<p></div></div>";
       i++;
     });
     html += "</div>";
@@ -332,13 +395,73 @@
     $(".article-belt").addClass("slide");
     $("#Clanky").addClass("opened");
     var article = this.app.articles[artId];
-    $(".article-open").html("<h3>" + article.title + "</h3><h4>" + article.date + "</h4><p>" + article.text + "<p>");
+    var textColor = textContrast(colorDecode(article.bg_color));
+    $("#Clanky").css("color", textColor);
+    this.app.getFullArticle(article.path, function(htmltext) {
+      $("#Clanky").css("background", article.bg_color);
+      $(".article-open").removeClass("loading");
+      $(".article-open").html("<h3>" + article.title + "</h3><p>" + htmltext + "<p>");
+    });
   };
 
   GUI.prototype.closeArticle = function(article) {
     $(".article-belt").removeClass("slide");
     $("#Clanky").removeClass("opened");
-    $(".article-open").html("");
+    // wait until the section closes
+    setTimeout(function() {
+      $(".article-open").addClass("loading");
+      $("#Clanky").css("background", "");
+      $("#Clanky").css("color", "");
+      $(".article-open").html("<div class='article-loader loader-inner line-scale'><div></div><div></div><div></div><div></div><div></div></div>");
+    }, 300);
+
+  };
+
+  GUI.prototype.showNav = function() {
+    var button = $(".nav-toggle");
+    var menu = $("nav");
+    menu.addClass("showNav");
+    menu.removeClass("purge");
+    button.addClass("dropped");
+  };
+
+  GUI.prototype.hideNav = function() {
+    var button = $(".nav-toggle");
+    var menu = $("nav");
+    menu.removeClass("showNav");
+    button.removeClass("dropped");
+    setTimeout(function() {
+      menu.addClass("purge");
+    }, 200);
+  };
+
+  GUI.prototype.resetForm = function() {
+    $('#contact-form > input').each(function() {
+      var thisObj = $(this);
+      if (thisObj.attr("name") === "_gotcha") return;
+      if (thisObj.attr("name") === "_next") return;
+      var value = thisObj.attr("value");
+      var val = thisObj.val("");
+      thisObj.next(".filed-value").html(val);
+    });
+    $('#contact-form textarea').val("Zpráva:");
+  };
+
+  GUI.prototype.showThanks = function() {
+    this.resetForm();
+    $(".contact-msg-row").html('<div class="alert alert-success alert-dimissible fade in"><button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4>Hurá!</h4><p>Vše se podařilo. Děkuji za vaši zprávu.</p></div>');
+    setTimeout(function () {
+      $(".contact-msg-row > div").alert('close');
+    },10000);
+  };
+
+  GUI.prototype.showSendError = function(msg) {
+    if(msg === "missing value") {
+      $(".contact-msg-row").html('<div class="alert alert-danger alert-dimissible fade in"><button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4>Ouha!</h4><p>Při odesílání se stala chyba. Prosím zkontrolujte zda máte vše vyplněno a zkuste to znovu.</p></div>');
+      setTimeout(function () {
+        $(".contact-msg-row > div").alert('close');
+      },10000);
+    }
   };
 
   // Main App
@@ -346,47 +469,51 @@
     var self = this;
     this.handler = new EventHandler(this);
     this.gui = new GUI(this);
-    /*
-    this.getGoogleData(DATA_KEY_COMING_UP, "0", function(err, data) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      self.gui.drawComingUp(data);
-    });
-    */
-    var data = [
-      {name: "Praha",when: "2.3.2000", where: "Tu", what: "asdf", description: "cesta tam a sem"}
-    ];
+    this.getArticleList();
+
+    var data = [];
     self.gui.drawComingUp(data);
-
-    var articles = [{title: "clanek 1", date: "2.4.2045", text: "lorem ipsum dolor sit"},
-    {title: "clanek 2", date: "2.4.2043", text: "Mollit **non** laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem  ipsum dolor sit.\n ![alt](/img/katka.jpg)"},
-    {title: "clanek 3", date: "2.4.2045", text: "Mollit _non_ laboris laboris veniam eiusmod sit tempor non elit \n ![Image Alt](https://duckduckgo.com/assets/badges/logo_square.64.png)\nconsectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
-    {title: "clanek 4", date: "2.4.2045", text: "#Mollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.lorem ipsum dolor sit"},
-    {title: "clanek 5", date: "2.4.2045", text: "lorem ipsum dolor sit"},
-    {title: "clanek 6", date: "2.4.2045", text: "lMollit non laboris laboris veniam eiusmod sit tempor non elit consectetur ad ea. Nisi in cupidatat incididunt adipisicing irure sint adipisicing enim est. Cupidatat irure amet laboris et ipsum consequat proident consequat consequat deserunt ipsum occaecat do aliqua. Nulla cupidatat voluptate in reprehenderit nostrud est consequat tempor irure ea aute. Veniam laboris aute non ullamco commodo voluptate culpa anim. Commodo aliqua magna sint esse reprehenderit enim irure.orem ipsum dolor sit"}];
-    articles = parseArticles(articles);
-    self.gui.drawArticles(articles);
-    self.articles = articles;
   }
-
-  App.prototype.getGoogleData = function(sheetId, gid, cb) {
-    var url = "http://docs.google.com/feeds/download/spreadsheets/Export?key=" + sheetId + "&exportFormat=csv&gid=" + gid;
-
-    Papa.parse(url, {
-      download: true,
-      dynamicTyping: true,
-      header: true,
-      complete: function(result) {
-        if (result.errors.length > 0) return cb(result.errors, null);
-        return cb(null, result.data);
-      }
+  App.prototype.getArticleList = function() {
+    var self = this;
+    $.ajax("/data/articles.json", {
+      dataType: "json",
+      cache: false,
+      type: "GET"
+    }).done(function(data) {
+      self.articles = parseArticles(data.articles);
+      self.gui.drawArticles(self.articles);
     });
   };
+
+  App.prototype.getFullArticle = function(path, cb) {
+    var self = this;
+    $.ajax("/data/articles/" + path, {
+      dataType: "text",
+      cache: false,
+      type: "GET"
+    }).done(function(data) {
+      console.log(data);
+      cb(md.toHTML(data));
+    });
+  };
+
+  // App.prototype.getGoogleData = function(sheetId, gid, cb) {
+  //   var url = "http://docs.google.com/feeds/download/spreadsheets/Export?key=" + sheetId + "&exportFormat=csv&gid=" + gid;
+  //
+  //   Papa.parse(url, {
+  //     download: true,
+  //     dynamicTyping: true,
+  //     header: true,
+  //     complete: function(result) {
+  //       if (result.errors.length > 0) return cb(result.errors, null);
+  //       return cb(null, result.data);
+  //     }
+  //   });
+  // };
 
   // https://spreadsheets.google.com/feeds/cells/13YRA3JLsSle_UvOP9tWSXm7M15dPKGF_jAR4__2Ous8/od6/public/basic?alt=json
   $(document).ready(function() {
     var app = new App();
   });
-})($, Papa,markdown);
+})($, null, markdown);

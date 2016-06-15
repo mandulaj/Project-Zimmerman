@@ -11,8 +11,8 @@ block header
       nav
         ul
           li
-            a(href="#O-me")
-              span(data-title="O mě") O mě
+            a(href="#O-mne")
+              span(data-title="O mně") O mně
           li
             a(href="#Kniha")
               span(data-title="Kniha") Kniha
@@ -45,33 +45,34 @@ block header
 
 block content
   // About me section
-  .row#O-me
+  section.row#O-mne
     .container
       .row
-        h2 O mě
+        h2 O mně
       .row
         
         .col-md-4
-          p Jsem horolezkyně a nezávislá cestovatelka. Na cestách po světě jsem ztrávila více než tři roky života. Lezla jsem na vysoké hory v Tian Shanu, na Pamíru, v Cordillerách, ve východním Tibetu. Stopem jsem procestovala Sibiř a Dálný východ, americký divoký západ, jihoamerické Altiplano i poušť Atakama, tibetskou náhorní plošinu, pákistánský Karakoram, kazašskou step i gruzínsko-turecké pohraničí. Často křižuji Evropu, proto i Vás si někdy možná stopnu na evopských dálnicích.
+          p Jsem horalka a nezávislá cestovatelka. Na cestách po světě jsem strávila více než tři roky života. Lezla jsem na vysoké hory v Tian Shanu, na Pamíru, v Cordillerách, ve východním Tibetu. Stopem jsem procestovala Sibiř a Dálný východ, americký divoký západ, jihoamerické Altiplano i poušť Atakama, tibetskou náhorní plošinu, pákistánský Karakoram, kazašskou step i gruzínsko-turecké pohraničí. Často křižuji Evropu, proto i Vás si někdy možná stopnu na evropských dálnicích.
           img(src="/img/katka.jpg" class="img-responsive")
         .col-md-8#travelcv
           p <strong>Cestovatelské Curriculum Vitae</strong>
           ul
             li 1997 <i>Cesta na koloběžce z Valašska do Slovenského ráje</i>
-            li 2000 (4 měsíce) <i>USA – stopem po americkém Západě</i>
-            li 2001 (2 měsíce) <i>Pakistán – první cestana Východ po zemi stopem přes Turecko, Irán, Pakistán</i>
-            li 2002  (4 měsíce) <i>Jižní Amerika – první samostatná výprava do hor Peru, Bolívie a Ekvádoru</i>
-            li 2003 - 2004  (11 měsíců) <i>Asie – druhá cesta po zemi do Asie přes Rusko, Střední Asii, pak dále stopem přes Tibet, Nepál, Indii, Pakistán, Irán a Turecko</i>
-            li 2006 (2 měsíce) <i>Indie  –  cesta po zamrzlé řece Zanskar v Ladaku (Chadar)</i>
-            li 2008 (3 týdny) <i>Gruzie - stopem v zemi ve válečném stavu</i>
-            li 2009 (4 a půl měsíce) <i>Rusko a Čína - stopem z Třebíče do Vladivostoku a horolezecká expedice ve východním Tibetu na Lamo She</i>
-            li 2010 (3 týdny) <i>Indie - cesta k prameni řeky Gangy a Jamuny</i>
-            li 2011 (1 měsíc) <i>Kazachstán - výstup na Chan Tengri</i>
-            li 2012 (3 týdny) <i>Pákistán - přechod ledovce Biafo Hispar v Karakoramu</i>
-            li 2013 (1 měsíc) <i>Chile, Argentina - výstup na Aconcaguu</i>
+            li 2000 <i>USA – stopem po americkém Západě</i>
+            li 2001 <i>Pakistán – první cesta na Východ po zemi stopem přes Turecko, Irán, Pakistán</i>
+            li 2002 <i>Jižní Amerika – první samostatná výprava do hor Peru, Bolívie a Ekvádoru</i>
+            li 2003 - 2004 <i>Asie – druhá cesta po zemi do Asie přes Rusko, Střední Asii, pak dále stopem přes Tibet, Nepál, Indii, Pakistán, Irán a Turecko</i>
+            li 2006 <i>Indie  –  cesta po zamrzlé řece Zanskar v Ladaku (Chadar)</i>
+            li 2008 <i>Gruzie - stopem v zemi ve válečném stavu</i>
+            li 2009 <i>Rusko a Čína - stopem z Třebíče do Vladivostoku a horolezecká expedice ve východním Tibetu na Lamo She</i>
+            li 2010 <i>Indie - cesta k prameni řeky Gangy a Jamuny</i>
+            li 2011 <i>Kazachstán - výstup na Chan Tengri</i>
+            li 2012 <i>Pákistán - přechod ledovce Biafo Hispar v Karakoramu</i>
+            li 2013 <i>Chile, Argentina - výstup na Aconcaguu</i>
+            li 2014 <i>Tadžikistán - expedice na Pik Korženěvská</i>
 
-  // Book Section
-  .row#Kniha
+  //- Book Section
+  section.row#Kniha
     .container
       .row
         .col-md-4
@@ -95,8 +96,8 @@ block content
       
 
 
-  // Gallery section
-  .row#Galerie
+  //- Gallery section
+  section.row#Galerie
     h2 Galerie
     .owl-carousel#gallery-carousel
       .item
@@ -117,7 +118,7 @@ block content
       .item
         img(src="/img/events/2009_Cina.jpg")
         .img-description
-          h3 Cina
+          h3 Čína
           p 2009
       .item
         img(src="/img/events/2009_Lamo_Sche.jpg")
@@ -127,7 +128,7 @@ block content
       .item
         img(src="/img/events/2009_Sibir.jpg")
         .img-description
-          h3 Sibir
+          h3 Sibiř
           p 2009
       .item
         img(src="/img/events/2009_Tibet.jpg")
@@ -147,7 +148,7 @@ block content
       .item
         img(src="/img/events/2012_Pakistan.jpg")
         .img-description
-          h3 Pakistan
+          h3 Pákistán
           p 2012
       .item
         img(src="/img/events/2013_Aconcagua.jpg")
@@ -167,7 +168,7 @@ block content
       .item
         img(src="/img/events/2014_Tajikistan.jpg")
         .img-description
-          h3 Tajikistan
+          h3 Tádžikisán
           p 2014
       .item
         img(src="/img/events/Rumunsko.jpg")
@@ -175,8 +176,8 @@ block content
           h3 Rumunsko
           p 2014
 
-  // Future events section
-  .row#Chystane-akce
+  //- Future events section
+  section.row#Chystane-akce
     .container
       .row
         h2 Chystané akce
@@ -185,8 +186,8 @@ block content
           p.blank
            | Prozatím nic
 
-  // Articles Section
-  .row#Clanky
+  //- Articles Section
+  section.row#Clanky
     .container
       .row
         h2 Články
@@ -196,38 +197,46 @@ block content
       .article-wrap
         .container
           button(type="button" class="btn btn-default btn-md article-back-btn")
-            span.glyphicon.glyphicon-arrow-left(aria-hidden="true")  Back
+            span.glyphicon.glyphicon-arrow-left(aria-hidden="true") Zpátky
           .row
-            .col-xs-12.article-open
+            .col-xs-12.article-open.loading
+              .loader-inner.line-scale.article-loader
+                div
+                div
+                div
+                div
+                div
 
-  // Blog Section
-  .row#Blog
+  //- Blog Section
+  section.row#Blog
     .container
       .row
         h2 Blog
       .row
         p Under Construction
 
-  // Contact Section
-  .row#Kontakt
+  //- Contact Section
+  section.row#Kontakt
     .container
       .row
         h2 Kontakt
       .row
         .col-md-8.col-md-offset-2
-          form#contact-form(method="POST" action="//formspree.io/")
+          form#contact-form(method="POST")
             input(type="text" name="name" value="Jméno:")
             input(type="email" name="_replyto" value="Email:")
             textarea Zpráva:
             input(type="text" name="_gotcha" style="display:none")
-            button(type="submit") Odeslat
-
+            input(type="hidden" name="_next" value="/msg")
+            button(type="submit" class="btn btn-lg btn-default contact_submit") Odeslat
+      .row.contact-msg-row
+        
 
 block scripts
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js")
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js")
-  script(type="text/javascript" src="/js/owl/owl.carousel.min.js")
+  script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.5/owl.carousel.min.js")
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.min.js")
   script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js")
   script(type="text/javascript" src="/js/index.js")

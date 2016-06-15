@@ -1,33 +1,22 @@
 doctype html
-html
-  //if lt IE 7 
-    html.ie6  
-  //if IE 7 
-    html.ie7  
-  //if IE 8 
-    html.ie8  
-  //if IE 9 
-    html.ie9  
-  // [if (gt IE 9)|!(IE)] <!
-  html
-    // <![endif]
-    head
-      meta(name='keywords', content='Vladivostop, Vladivostok ')
-      meta(name='author', content='Kateřina Mandulová')
-      meta(name='description', content='Cesta na Sibiř a ještě dál...')
-      meta(name='viewport', content='width=device-width, initial-scale=1')
-      link(type='text/css', rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css')
-      link(type='text/css', rel='stylesheet', href='/css/book2.css')
-      link(type='text/css', rel='stylesheet', href='/css/bookpage.css')
-      link(rel='icon', href='images/favicon.ico')
-      title Vladivostop
-      style.
-        @import url(http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700,700italic,500italic,400italic,500&subset=latin,latin-ext);
-        /* CSS Document */
-        * {
-        font-family: Roboto Verdana, Geneva, sans-serif;
-        }
-        /*setting up initial fonts*/
+html(lang="cz")
+  head
+    meta(name='keywords', content='Vladivostop, Vladivostok ')
+    meta(name='author', content='Kateřina Mandulová')
+    meta(name='description', content='Cesta na Sibiř a ještě dál...')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(type='text/css', rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css')
+    link(type='text/css', rel='stylesheet', href='/css/book2.css')
+    link(type='text/css', rel='stylesheet', href='/css/bookpage.css')
+    link(rel='icon', type="image/png", href='images/favicon.ico')
+    title Vladivostop
+    style.
+      @import url(http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700,700italic,500italic,400italic,500&subset=latin,latin-ext);
+      /* CSS Document */
+      * {
+      font-family: Roboto Verdana, Geneva, sans-serif;
+      }
+      /*setting up initial fonts*/
     body
       // Start Body 
       #videopg
@@ -47,128 +36,14 @@ html
               |           
               span.icon-bar
             |         
-            a.navbar-brand(href='index.html?v=old') Menu
+            a.navbar-brand(href='/') Menu
           |       
           .navbar-collapse.collapse
             ul.nav.navbar-nav
               li.active
-                a(href='index.html?v=old')
+                a(href='/')
                   | Home 
                   span.glyphicon.glyphicon-home
-              |           
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Kniha 
-                  span.glyphicon.glyphicon-book
-                |             
-                ul.dropdown-menu
-                  li
-                    a(href='#')
-                      | Obsah 
-                      span.glyphicon.glyphicon-list
-                  |               
-                  li
-                    a(href='#')
-                      | Uk&aacute;zka 
-                      span.glyphicon.glyphicon-bookmark
-                  |               
-                  li
-                    a(href='mapa.html')
-                      | Mapa 
-                      span.glyphicon.glyphicon-map-marker
-                  |               
-                  li.divider
-                  |               
-                  li
-                    a(href='partneri.html')
-                      | Partne&rcaron;i 
-                      span.glyphicon.glyphicon-certificate
-                  |               
-                  li
-                    a(href='#')
-                      | Koupit 
-                      span.glyphicon.glyphicon-shopping-cart
-              |           
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Profil 
-                  span.glyphicon.glyphicon-user
-                |             
-                ul.dropdown-menu
-                  li
-                    a(href='#')
-                      | Autorka 
-                      span.glyphicon.glyphicon-question-sign
-                  |               
-                  li
-                    a(href='#')
-                      | Rozhovor 
-                      span.glyphicon.glyphicon-bullhorn
-                  |               
-                  li
-                    a(href='#')
-                      | &Ccaron;l&aacute;nky 
-                      span.glyphicon.glyphicon-align-justify
-              |           
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Galerie 
-                  span.glyphicon.glyphicon-picture
-                |             
-                ul.dropdown-menu
-                  li
-                    a(href='#')
-                      | Fotky 
-                      span.glyphicon.glyphicon-camera
-                  |               
-                  li
-                    a(href='#')
-                      | Plak&aacute;ty 
-                      span.glyphicon.glyphicon-file
-              |           
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Prom&iacute;t&aacute;n&iacute; 
-                  span.glyphicon.glyphicon-calendar
-                |             
-                ul.dropdown-menu
-                  li
-                    a(href='#')
-                      | Historie 
-                      span.glyphicon.glyphicon-header
-                  |               
-                  li
-                    a(href='#')
-                      | P&rcaron;&iacute;&scaron;t&iacute; 
-                      span.glyphicon.glyphicon-paperclip
-              |           
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Kontakt 
-                  span.glyphicon.glyphicon-earphone
-                |             
-                ul.dropdown-menu
-                  li
-                    a(href='#')
-                      | E-mail 
-                      span.glyphicon.glyphicon-envelope
-                  |               
-                  li
-                    a(href='#')
-                      | Koupit knihu 
-                      span.glyphicon.glyphicon-shopping-cart
-                  |               
-                  li
-                    a(href='#')
-                      | Jin&eacute; 
-                      span.glyphicon.glyphicon-globe
-                  |               
-                  li.divider
-                  |               
-                  li
-                    a(href='#') Fun club 
-          // /.nav-collapse
-      |   
       .title
         .container
           h1
@@ -247,32 +122,14 @@ html
                 // Front
                 ul.hardcover_front
                   li
-                    .coverDesign
-                      img(width='100%', src='/img/bookpage/23_prebal_01.jpg')
+                    img(width='100%', height="100%" src='/img/bookpage/23_prebal_01.jpg')
                   |               
                   li
                 // Pages
                 ul.page
                   li
                   |               
-                  li.book_chap_list(style='text-align: center')
-                    .book_chap
-                      a(src='#') Kapitola 1
-                    |                 
-                    .book_chap
-                      a(src='#') Kapitola 2
-                    |                 
-                    .book_chap
-                      a(src='#') Kapitola 3
-                    |                 
-                    .book_chap
-                      a(src='#') Kapitola 4
-                    |                 
-                    .book_chap
-                      a(src='#') Kapitola 5
-                    |                 
-                    .book_chap
-                      a(src='#') Kapitola 6
+                  li
                   |               
                   li
                   |               
@@ -298,5 +155,4 @@ html
       
       script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
       script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js")
-      script(type='text/javascript', src='/js/video.js')
-      script(type='text/javascript', src='/js/script.js')
+      script(type='text/javascript', src='/js/kniha.js')
