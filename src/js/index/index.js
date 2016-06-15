@@ -26,12 +26,15 @@
   // Main App
   function App() {
     var self = this;
-    this.handler = new EventHandler(this);
     this.gui = new GUI(this);
     this.getArticleList();
 
     var data = [];
     self.gui.drawComingUp(data);
+    self.gui.drawGalleryCarousel();
+
+
+    this.handler = new EventHandler(this);
   }
   App.prototype.getArticleList = function() {
     var self = this;
