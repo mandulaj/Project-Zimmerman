@@ -1,12 +1,11 @@
 var EventHandler_module = (function($) {
   // Event setup, handler
   function EventHandler(app) {
-    var self = this;
     this.app = app;
   }
 
   EventHandler.prototype.init = function() {
-
+    var self = this;
     // Mobile nav-bar manipulation
     this.navbarOpen = false;
     $(".nav-toggle").click(this.toggleNav.bind(this));

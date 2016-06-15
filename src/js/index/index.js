@@ -27,7 +27,7 @@
   function App() {
     var self = this;
     this.gui = new GUI(this);
-    this.handler = new EventHandler(self);
+    this.handler = new EventHandler(this);
 
     var requestPromises = [];
     requestPromises.push(this.getArticleList());
