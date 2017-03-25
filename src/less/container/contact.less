@@ -1,0 +1,86 @@
+@general-transition: 10s;
+
+#Kontakt {
+  box-shadow: inset 0 11px 26px -7px rgba(0,0,0,.3);
+  form#contact-form {
+    perspective: 300;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 30px;
+    .field-wrap {
+      display: inline-block;
+      position: relative;
+      height: 50px;
+      width: 50%;
+      padding: 0;
+      margin: 5px 0;
+      line-height: 0;
+      font-size: 0;
+      cursor: pointer;
+      transition: all @general-transition ease-out;
+      transform: rotateX(0deg);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+    .field-desc {
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .field-value {
+      position: absolute;
+      white-space: nowrap;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      height: 50px;
+      line-height: 25px;
+      padding-top: 0;
+      transform: rotateX(0deg);
+      backface-visibility: hidden;
+      padding: 10px;
+      background: rgba(30, 79, 155, 0.75);
+      color: #fff;
+      width: 100%;
+      font-size: 15px;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
+    input {
+      border: none;
+      height: 50px;
+      width: 100%;
+      padding: 0 10px;
+      font-size: 16px;
+      line-height: 1em;
+      margin: 0;
+      outline: none;
+      transform: rotateX(180deg);
+      backface-visibility: hidden;
+    }
+    input:focus {
+      background: rgba(86, 123, 180, 0.7);
+      color: #fff;
+    }
+    .flip {
+      transform: rotateX(-180deg);
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-size: 15px;
+      margin: 5px 0;
+      padding: 10px;
+      outline: none;
+      border: none;
+      background: rgba(30, 79, 155, 0.75);
+      color: #fff;
+      transition: all @general-transition ease-out;
+      font-weight: bold;
+    }
+    textarea:focus {
+      background: rgba(86, 123, 180, 0.7);
+    }
+
+  }
+}

@@ -1,0 +1,80 @@
+@general-transition: 10s;
+
+@keyframes bounce {
+  0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  4.7% { transform: matrix3d(1.022, 0, 0, 0, 0, 1.022, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  9.41% { transform: matrix3d(1.044, 0, 0, 0, 0, 1.044, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  14.11% { transform: matrix3d(1.057, 0, 0, 0, 0, 1.057, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  18.72% { transform: matrix3d(1.061, 0, 0, 0, 0, 1.061, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  24.32% { transform: matrix3d(1.058, 0, 0, 0, 0, 1.058, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  29.93% { transform: matrix3d(1.052, 0, 0, 0, 0, 1.052, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  35.54% { transform: matrix3d(1.049, 0, 0, 0, 0, 1.049, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  41.04% { transform: matrix3d(1.048, 0, 0, 0, 0, 1.048, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  52.15% { transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  63.26% { transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  85.49% { transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  100% { transform: matrix3d(1.05, 0, 0, 0, 0, 1.05, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+}
+
+
+
+
+#Clanky {
+  box-shadow: inset 0 0px 25px  rgba(0,0,0,0.3);
+  overflow-x: hidden;
+  transition: all @general-transition ease;
+  &.opened{
+    background: rgba(30, 179, 236, 0.5);
+    box-shadow: inset 0px 0px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .article-belt {
+    position: relative;
+    width: 200%;
+    .thumb-wrap, .article-wrap{
+      width: 50%;
+      float: left;
+      padding-bottom: 50px;
+    }
+    transition: all @general-transition ease;
+    &.slide {
+      transform: translate3d(-50%,0,0);
+    }
+  }
+
+
+  .article {
+    background: rgb(102, 176, 211);
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    &:hover {
+      animation: bounce 1000ms linear both;
+    }
+    img {
+      max-width: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .article-open {
+    width: 100%;
+    img {
+      max-width: 100%;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .article-loader {
+      margin-top: 50px;
+      display: inline-block;
+    }
+    &.loading {
+      text-align: center;
+    }
+  }
+}

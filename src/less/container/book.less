@@ -1,0 +1,27 @@
+#Kniha {
+  // 3D book
+  @import "../book.less";
+
+  background: rgba(30, 115, 155, 0.62);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .clickme-book {
+    transform: rotate(-6deg);
+    span {
+      font-size: 33px;
+      font-weight: bold;
+      font-family: 'Gloria Hallelujah', cursive;
+      color: white;
+
+    }
+    img {
+      margin-top: 20px;
+      float: right;
+      height: 220px;
+    }
+    @media(max-width:991px) {
+      display: none;
+    }
+  }
+}
