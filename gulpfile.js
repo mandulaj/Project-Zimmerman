@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
   less = require('gulp-less'),
   minify = require("gulp-clean-css"),
   autoprfixer = require('gulp-autoprefixer'),
@@ -8,7 +8,7 @@ var gulp = require('gulp'),
   connect = require('gulp-connect'),
   rename = require('gulp-rename'),
   jade = require('gulp-jade'),
- // imageop = require('gulp-image-optimization'),
+  imagemin = require('gulp-imagemin'),
   changed = require('gulp-changed'),
   gulpIf = require('gulp-if'),
   exec = require('child_process').exec;
@@ -92,11 +92,11 @@ gulp.task("image", function() {
   return gulp.src(paths.input.img)
     .pipe(plumber())
     .pipe(changed(paths.output.img))
-    //.pipe(imageop({
-    //  optimizationLevel: 5,
-    //  progressive: true,
-    //  interlaced: true
-    //}))
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5})
+    ]))
     .pipe(gulp.dest(paths.output.img));
 });
 
