@@ -37,11 +37,23 @@ function isDeploy() {
 
 gulp.task('deploy', ['jade', 'less', 'js', 'image', 'articles'], function(cb) {
   //TODO: make sure to merge any articles from the github repository into here
-  exec('git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force; git reset HEAD^;git reset build', function(err, stdout, stderr) {
-    if (err) return cb(err); // return error
-    console.log(stdout);
-    console.log(stderr);
-    cb(); // finished task
+
+  // Check for uncommited files
+  exec('git status', function(err, stdout, stderr){
+    if(err) return cb(err);
+
+    if((/nothing to commit, working tree clean/).test(stdout)){
+      exec('git add -f build; git commit -m "git deployment ' + new Date() + '"; git push origin `git subtree split --prefix build`:gh-pages --force; git reset HEAD^;git reset build', function(err, stdout, stderr) {
+        if (err) return cb(err); // return error
+        console.log(stdout);
+        console.log(stderr);
+        cb(); // finished task
+      });
+    } else {
+      console.log("Error, uncommited changes in the working tree.")
+      console.log("Please commit your changes and then run gulp deploy again.")
+      return cb();
+    }
   });
 });
 
