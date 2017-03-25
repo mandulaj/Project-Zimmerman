@@ -23,6 +23,8 @@ var EventHandler_module = (function($) {
     owl.owlCarousel({
       stagePadding: 50,
       margin: 10,
+      nav: true,
+      navText: ['<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'],
       autoplay:true,
       autoplayTimeout:7000,
       autoplayHoverPause:true,
@@ -34,14 +36,14 @@ var EventHandler_module = (function($) {
             items:1
         },
         700:{
-            items:2
+            items:1
         },
         1600:{
             items:2
         }
       }
     });
-    
+
 
     // Book
     var $books = $(".book-container > div.bk-book");

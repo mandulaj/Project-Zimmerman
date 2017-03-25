@@ -55,6 +55,36 @@
   }
 
   #gallery-carousel {
+    .owl-nav{
+      div {
+        background: rgba(0, 0, 0, 0.0);
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 40px;
+        transition: background @general-transition ease-out;
+        &:hover{
+          background: rgba(0, 0, 0, 0.4);
+        }
+        span{
+          font-size: 34px;
+          top: 50%;
+          margin-top: -17px;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.97);
+          text-shadow: rgba(0, 0, 0, 0.84) 2px 2px 10px;
+        }
+      }
+      .owl-prev {
+        left: 0;
+
+      }
+      .owl-next {
+        right: 0;
+      }
+
+    }
+
     .item {
       overflow: hidden;
       .img-description {
@@ -65,7 +95,7 @@
         background: rgba(0,0,0,0.35);
         opacity: 1;
         color: #fff;
-        transition: all 0.2s ease-out;
+        transition: all @general-transition ease-out;
         &:hover {
           background: rgba(0,0,0,0.50);
         }
@@ -74,11 +104,13 @@
         display: block;
         width: 100%;
         height: auto;
-        transition: all 0.2s ease-out;
+        transition: transform @general-transition*1.5 ease-in;
+
       }
       &:hover {
         img {
           transform: scale(1.1);
+          transition: transform 10s ease;
         }
         .img-description {
           bottom: 0;
@@ -117,7 +149,7 @@
       line-height: 0;
       font-size: 0;
       cursor: pointer;
-      transition: all 0.2s ease-out;
+      transition: all @general-transition ease-out;
       transform: rotateX(0deg);
       transform-style: preserve-3d;
       backface-visibility: hidden;
@@ -174,7 +206,7 @@
       border: none;
       background: rgba(30, 79, 155, 0.75);
       color: #fff;
-      transition: all 0.3s ease-out;
+      transition: all @general-transition ease-out;
       font-weight: bold;
     }
     textarea:focus {
@@ -224,7 +256,7 @@
   #Clanky {
     box-shadow: inset 0 0px 25px  rgba(0,0,0,0.3);
     overflow-x: hidden;
-    transition: all .4s ease;
+    transition: all @general-transition ease;
     &.opened{
       background: rgba(30, 179, 236, 0.5);
       box-shadow: inset 0px 0px 25px rgba(0, 0, 0, 0.3);
@@ -238,7 +270,7 @@
         float: left;
         padding-bottom: 50px;
       }
-      transition: all .4s ease;
+      transition: all @general-transition ease;
       &.slide {
         transform: translate3d(-50%,0,0);
       }
