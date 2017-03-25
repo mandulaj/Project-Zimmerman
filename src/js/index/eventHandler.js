@@ -37,20 +37,11 @@ var EventHandler_module = (function($) {
             items:2
         },
         1600:{
-            items:3
+            items:2
         }
       }
     });
-    owl.on('mousewheel', '.owl-stage', function (e) {
-      // TODO: fix originalEvetn - should not be needed
-      if (e.originalEvent.deltaY>0) {
-        owl.trigger('next.owl');
-      } else {
-        owl.trigger('prev.owl');
-      }
-      e.preventDefault();
-    });
-
+    
 
     // Book
     var $books = $(".book-container > div.bk-book");
