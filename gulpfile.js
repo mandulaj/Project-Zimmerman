@@ -11,6 +11,7 @@ const gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   changed = require('gulp-changed'),
   gulpIf = require('gulp-if'),
+  del = require('del'),
   exec = require('child_process').exec;
 
 
@@ -123,6 +124,10 @@ gulp.task("watch", function() {
   gulp.watch(paths.input.jade, ['jade']);
   gulp.watch(paths.input.img, ['image']);
   gulp.watch(paths.input.articles, ['articles']);
+});
+
+gulp.task("clean", function() {
+  return del([paths.output.root]);
 });
 
 gulp.task('default', ["connect", "less", "jade", "js", "image","articles", "watch"]);
