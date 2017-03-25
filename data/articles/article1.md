@@ -1,5 +1,5 @@
 Kdy popluje příští trajekt z portu Vanina na Sachalin, je snad státním tajemstvím. U malin-
-kého okýnka se mačká chumel dezorientovaných pasažérů. Jsem poslední ve frontě, takže se o místo na palubě rvát nemusím. Lístek na mě nezbyl, což ale nebrání tomu, abych se přeci jen nalodila. Rychlostí dvaceti uzlů za hodinu kurs přístav Cholmsk se přibližuji tomu podivuhodnému ostrovu. Na druhém břehu Tatarského průlivu, ejhle, zase Rusko v plné své postsocialistické kráse. Vylodili jsme se ve tři ráno a už na nás čekají orgány. Prý mám vízum jen do Moskvy a tady jsme na Sachalinu. Nevím, o co jim jde. Chvilku to na mě zkoušejí, pak provedou povinnou registraci a dají pokoj.
+kého okýnka se mačká chumel dezorientovaných pasažérů. Jsem poslední ve frontě, takže se o místo na palubě rvát nemusím. Lístek na mě nezbyl, což ale nebrání tomu, abych se přeci jen nalodila. Rychlostí dvaceti uzlů za hodinu kurs přístav Cholmsk se přibližuji tomu podivuhodnému ostrovu. Na druhém břehu Tatarského průlivu, ejhle, zase Rusko v plné své postsocialistické kráse. Vylodili jsme se ve tři ráno a už na nás čekají orgány. Prý mám vízum jen do Moskvy a tady jsme na Sachalinu. Nevím, o co jim jde. Chvilku to na mě zkoušejí, pak provedou povinnou registraci a dají pokoj.test
 
 ![](/img/articles/sachalin/sach2.jpg)
 
