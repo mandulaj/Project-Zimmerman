@@ -82,6 +82,7 @@ gulp.task("less", function() {
 
 gulp.task("jade", function() {
   gulp.src("CNAME").pipe(gulp.dest(paths.output.root));
+  gulp.src(".gitignore").pipe(gulp.dest(paths.output.root));
   return gulp.src(paths.input.jade)
     .pipe(plumber())
     .pipe(jade())
