@@ -216,10 +216,36 @@
   .book-1 .bk-left {
     background-color: #64a9ba;
   }
+  .book-2 .bk-front > div,
+  .book-2 .bk-front:after {
+    background-color: #fff;
+  }
+  .book-2 .bk-back,
+  .book-2 .bk-left {
+    background-color: #dae2e5;
+    
+  }
+  
+  .book-2.book-container {
+    width: 400px;
+  }
+  
   .book-1 .bk-cover {
     background-image: url("/img/23_prebal_01.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  
+  .book-2 .bk-cover {
+    background-image: url("/img/Jasanove-basne-cover.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+  }
+  
+  .book-2 .bk-front > div {
+    width: 400px;
+    height: 400px;
   }
   .book-1 .bk-cover h2 {
     position: absolute;
@@ -231,8 +257,25 @@
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
   }
+  .book-2 .bk-cover h2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 30px;
+    background: rgba(255,255,255,0.2);
+    color: #bcccd6;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+  }
   .book-1 .bk-cover h2 span:first-child,
   .book-1 .bk-left h2 span:first-child {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+    padding-right: 20px;
+  }
+  .book-2 .bk-cover h2 span:first-child,
+  .book-2 .bk-left h2 span:first-child {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 13px;
@@ -241,11 +284,21 @@
   .book-1 .bk-cover h2 span:first-child {
     display: block;
   }
+  .book-2 .bk-cover h2 span:first-child {
+    display: block;
+  }
   .book-1 .bk-cover h2 span:last-child,
   .book-1 .bk-left h2 span:last-child {
     font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
   }
+  .book-2 .bk-cover h2 span:last-child,
+  .book-2 .bk-left h2 span:last-child {
+    font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+  }
   .book-1 .bk-content p {
+    font-family: Georgia, Times, "Times New Roman", serif;
+  }
+  .book-2 .bk-content p {
     font-family: Georgia, Times, "Times New Roman", serif;
   }
   .book-1 .bk-left h2 {
@@ -255,7 +308,21 @@
     padding-right: 10px;
     text-align: right;
   }
+  .book-2 .bk-left h2 {
+    color: #fff;
+    font-size: 15px;
+    line-height: 40px;
+    padding-right: 10px;
+    text-align: right;
+  }
   .book-1 .bk-back p {
+    color: #fff;
+    font-size: 13px;
+    padding: 40px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .book-2 .bk-back p {
     color: #fff;
     font-size: 13px;
     padding: 40px;
