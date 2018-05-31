@@ -1,6 +1,12 @@
 {
   "articles": [
     {
+      "title": "Expedice Sněžný leopard 2018",
+      "text": "Kde se bere nápad stát se Sněžným leopardem? Tímto prestižním titulem jsou oceňováni horolezci, kteří vystoupí na všechny sedmitisícové vrcholy bývalého Sovětského svazu. Dohromady je jich pět. Chan Tengri, Pik Pobědy leží v pohoří Tian Shan, na trojmezí Kazachstánu, Kyrgyzstánu a Číny. Pik Korženěvské, Pik Komunismu a Pik Lenina jsou významné vrcholy Pamíru, v blízkosti hranice mezi Tádžikistánem a Kyrgyzstánem. Tři z těchto vrcholů už mám v kapse a tajně doufám, že jednou získám slavnou medaili a také se stanu Sněžným leopardem....\n![](/img/articles/snezny-leopard/pobeda.jpg)",
+      "path": "article5.md",
+      "bg_color": "rgba(127, 158, 224, 0.86)"
+    },
+    {
       "title": "Černá duše Sachalinu",
       "text": "Zmar, beznaděj, prázdnota... našlo by se mnoho slov, kterými lze popsat život na Sachalinu. Nic ale není tak černé, jak se zdá. I tady se lidé nad stakanem vodky a upytlačeným lososem dokážou smát dlouho do noci...\n![](/img/articles/sachalin/sach2.jpg)",
       "path": "article1.md",
