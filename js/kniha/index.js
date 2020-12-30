@@ -1,0 +1,1 @@
+!function(t,n,e){"use strict";function i(){this.gui=new n(this),this.handler=new e(this)}i.prototype.start=function(){this.handler.start()},t(document).ready(function(){(new i).start()})}($,GUI_module,EventHandler_module);

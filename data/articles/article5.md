@@ -22,11 +22,7 @@ Velkou výzvou je pro mě Pik Pobědy – 7439 m. Štít vítězství, pojmenov
 
 Letos v létě bych chtěla zdolat vrchol Pik Lenina – 7134 m. Expediční plány už se pomalu rýsují. Uvažuji, že bych si mohla tento lehčí vrchol vyběhnout v rámci Sky run, který se uskuteční 11. srpna 2018. Pro tuto příležitost prý přes ledovcové trhliny položí lávky a žebříky a těžší místa vyfixují jistícím lanem, ultramaratonci se pak mohou po kopci pohybovat rychle a celkem bezpečně. Další variantou je vzít si s sebou skialpové lyže a zalyžovat v sedmi tisících. Plány jsou to velkolepé. Uvidíme, jak to půjde. V každém případě už teď se těším na očistnou koupel v jezeře Issyk Kul. 
 
-Expedici Sněžný leopard 2018 podpořila Skupina ČEZ, distributor výborné expediční stravy Travellunch, také outdoorová firma 4camping.cz - dostala jsem od ní krásný expediční stan MSR, takže ubytování už zajištěno mám.
+Expedici Sněžný leopard 2018 podpořila outdoorová firma [**4camping.cz**](https://www.4camping.cz/), dostala jsem krásný expediční stan MSR, takže ubytování už zajištěno mám.
 
 
 [![](/img/articles/snezny-leopard/logo.png)](https://www.4camping.cz/)
-
-[![](/img/articles/snezny-leopard/travellunch.png)](https://www.travellunch.de/)
-
-[![](/img/articles/snezny-leopard/SkupinaCEZ_RGB.png)](https://www.cez.cz/en/home.html)
